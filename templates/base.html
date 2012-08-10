@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>{% if page.title %}{{ page.title }} - {% endif %}deltalima.net</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='img/favicon.ico') }}" rel="shortcut icon">
+</head>
+<body>
+
+<header>
+ <div class="container">
+  <h1><a href="{{ url_for('page') }}" title="deltalima.net"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo deltalima.net" title="deltalima.net"></a></h1>
+ </div>
+</header>
+
+<nav>
+ <div class="container">
+  <div class="row">
+   <div class="span2">
+    <a id="nav-laurent" {% if request.path == '/' %}class="active"{% endif %} href="{{ url_for('page') }}" title="Laurent">Laurent</a>
+   </div>
+   <div class="span2">
+    <a id="nav-projects" {% if request.path.startswith('/projets/') %}class="active"{% endif %} href="{{ url_for('page', path='projets') }}" title="Projets">Projets</a>
+   </div>
+   <div class="span2">
+    <a id="nav-blog" {% if request.path.startswith('blog') %}class="active"{% endif %} href="{{ url_for('page', path='blog') }}" title="Blog">Blog</a>
+   </div>
+   <div class="span2">
+    <a id="nav-contact" href="mailto:laurent@deltalima.net" title="Contact">Contact</a>
+   </div>
+  </div>
+ </div>
+</nav>
+
+<div class="content">
+ <div class="container">
+{% block content %}
+    <p>Default content to be displayed</p>
+{% endblock content %}
+ </div>
+</div>
+
+<footer>
+ <div class="container">
+  <p>&copy; 2012 deltalima.net SARL - <a href="{{ url_for('page', path='mentions-legales') }}">Mentions légales</a></p>
+ </div>
+</footer>
+
+</body>
+</html>
