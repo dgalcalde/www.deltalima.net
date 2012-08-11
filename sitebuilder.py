@@ -3,7 +3,7 @@
 
 import os, sys, locale
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, make_response
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 from werkzeug import SharedDataMiddleware
@@ -13,8 +13,7 @@ locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FREEZER_BASE_URL = ''
-FREEZER_DESTINATION = 'build/' + FREEZER_BASE_URL
+FREEZER_BASE_URL = 'http://www.deltalima.net'
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -38,6 +37,21 @@ def dateformat(value, format=u'%H:%M / %d-%m-%Y'):
 #
 # Routes
 #
+@app.route('/sitemap.xml')
+def sitemap():
+    urls = []
+
+    # all pages
+    for page in pages:
+        path = page.path
+        if path == 'index':
+            path = None
+        urls.append(url_for('page', path=path, _external=True))
+
+    response = make_response(render_template('sitemap.xml', urls=urls))
+    response.headers['Content-type'] = 'text/xml; charset=utf-8'
+    return response
+
 @app.route('/tag/<tag>/')
 def show_tag(tag):
     articles = (p for p in pages if tag in p.meta.get('tags', []))
@@ -68,6 +82,7 @@ def page(path="index"):
 @freezer.register_generator
 def url_generator():
     yield '/robots.txt'
+    yield '/sitemap.xml'
     yield '/favicon.ico'
 
 #
