@@ -48,6 +48,15 @@ def sitemap():
             path = None
         urls.append(url_for('page', path=path, _external=True))
 
+    # all tags
+    tags = []
+    for page in pages:
+        if 'tags' in page.meta:
+            tags += page.meta['tags']
+    tags = list(set(tags))
+    for tag in tags:
+        urls.append(url_for('show_tag', tag=tag, _external=True))
+
     response = make_response(render_template('sitemap.xml', urls=urls))
     response.headers['Content-type'] = 'text/xml; charset=utf-8'
     return response
