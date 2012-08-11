@@ -1,24 +1,35 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, locale
+import os, sys, locale
 
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, make_response
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
+from werkzeug import SharedDataMiddleware
 
 locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FREEZER_BASE_URL = '/www'
-FREEZER_DESTINATION = 'build/' + FREEZER_BASE_URL
+FREEZER_BASE_URL = 'http://www.deltalima.net'
+FREEZER_DESTINATION = 'build'
+
+if 'demo' in sys.argv:
+    FREEZER_BASE_URL = 'http://demo.deltalima.net/www'
+    FREEZER_DESTINATION = 'build/www'
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 pages = FlatPages(app)
 freezer = Freezer(app)
+
+app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
+    '/': os.path.join(os.path.dirname(__file__), 'static')
+})
+
 
 #
 # Filters
@@ -32,6 +43,30 @@ def dateformat(value, format=u'%H:%M / %d-%m-%Y'):
 #
 # Routes
 #
+@app.route('/sitemap.xml')
+def sitemap():
+    urls = []
+
+    # all pages
+    for page in pages:
+        path = page.path
+        if path == 'index':
+            path = None
+        urls.append(url_for('page', path=path, _external=True))
+
+    # all tags
+    tags = []
+    for page in pages:
+        if 'tags' in page.meta:
+            tags += page.meta['tags']
+    tags = list(set(tags))
+    for tag in tags:
+        urls.append(url_for('show_tag', tag=tag, _external=True))
+
+    response = make_response(render_template('sitemap.xml', urls=urls))
+    response.headers['Content-type'] = 'text/xml; charset=utf-8'
+    return response
+
 @app.route('/tag/<tag>/')
 def show_tag(tag):
     articles = (p for p in pages if tag in p.meta.get('tags', []))
@@ -55,15 +90,25 @@ def page(path="index"):
 
     return render_template(layout, page=page, articles=articles)
 
+
+#
+# URL generators
+#
+@freezer.register_generator
+def url_generator():
+    yield '/robots.txt'
+    yield '/sitemap.xml'
+    yield '/favicon.ico'
+
 #
 # Main
 #
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
+    if 'build' in sys.argv:
         freezer.freeze()
-    elif len(sys.argv) > 1 and sys.argv[1] == "serve":
+    elif 'serve' in sys.argv:
         freezer.serve()
-    elif len(sys.argv) > 1 and sys.argv[1] == "run":
+    elif 'run' in sys.argv:
         freezer.run()
     else:
         app.run(host='0.0.0.0', port=8000)
