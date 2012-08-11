@@ -1,24 +1,30 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import sys, locale
+import os, sys, locale
 
 from flask import Flask, render_template
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
+from werkzeug import SharedDataMiddleware
 
 locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
 
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FREEZER_BASE_URL = '/www'
+FREEZER_BASE_URL = ''
 FREEZER_DESTINATION = 'build/' + FREEZER_BASE_URL
 
 app = Flask(__name__)
 app.config.from_object(__name__)
 pages = FlatPages(app)
 freezer = Freezer(app)
+
+app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
+    '/': os.path.join(os.path.dirname(__file__), 'static')
+})
+
 
 #
 # Filters
@@ -54,6 +60,14 @@ def page(path="index"):
         articles = sorted(articles, reverse=True, key=lambda p: p.meta['published_date'])
 
     return render_template(layout, page=page, articles=articles)
+
+
+#
+# URL generators
+#
+@freezer.register_generator
+def url_generator():
+    yield '/robots.txt'
 
 #
 # Main
