@@ -14,6 +14,12 @@ DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
 FREEZER_BASE_URL = 'http://www.deltalima.net'
+FREEZER_DESTINATION = 'build'
+
+if 'demo' in sys.argv:
+    FREEZER_BASE_URL = 'http://demo.deltalima.net/www'
+    FREEZER_DESTINATION = 'build/www'
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
@@ -98,11 +104,11 @@ def url_generator():
 # Main
 #
 if __name__ == '__main__':
-    if len(sys.argv) > 1 and sys.argv[1] == "build":
+    if 'build' in sys.argv:
         freezer.freeze()
-    elif len(sys.argv) > 1 and sys.argv[1] == "serve":
+    elif 'serve' in sys.argv:
         freezer.serve()
-    elif len(sys.argv) > 1 and sys.argv[1] == "run":
+    elif 'run' in sys.argv:
         freezer.run()
     else:
         app.run(host='0.0.0.0', port=8000)
