@@ -68,6 +68,7 @@ def page(path="index"):
 @freezer.register_generator
 def url_generator():
     yield '/robots.txt'
+    yield '/favicon.ico'
 
 #
 # Main
