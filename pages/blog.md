@@ -1,3 +1,3 @@
 title: Blog
-layout: blog
+layout: blog_posts
 list_pages: blog

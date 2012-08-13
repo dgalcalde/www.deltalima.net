@@ -1,11 +1,6 @@
-{% extends "base.html" %}
-
-{% block content %}
-
-{% for article in articles %}
 <a name="{{ article.path }}"></a>
-<section class="{{ loop.cycle('odd', 'even') }}">
- <h3>{{ article.title }}</h3>
+<section>
+ <a href="{{ url_for('page', path=article.path) }}"><h3>{{ article.title }}</h3></a>
 
  <div class="row">
 
@@ -22,17 +17,14 @@
   </div>
 
   <div class="span6">
-   {{ article }}
-  </div>
-
-  <div class="span4">
+   {% if article.summary %}
+    {{ article.summary }}
+   {% else %}
+    {{ article.html|summarize|safe }}
+   {% endif %}
+   <p class="readmore"><a href="{{ url_for('page', path=article.path) }}">Lire la suite...</a></p>
   </div>
 
  </div> <!-- row -->
 
 </section>
-{% else %}
-    <p>Pas encore de post dans ce blog :(</p>
-{% endfor %}
-
-{% endblock content %}
