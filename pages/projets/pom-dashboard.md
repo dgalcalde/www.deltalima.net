@@ -17,3 +17,11 @@ La prochaine version de POM sortira en septembre 2012 en version 2.8. Cette nouv
 D'un point de vue technique, ce projet est très intéressant car il regroupe à la fois des défis côté serveur et côté client. L'interface web est en grande partie pilotée en Javascript avec les bibliothèques [jQuery](http://www.jquery.com) et [jQuery UI](http://www.jqueryui.com/). Sur le serveur, on retrouve le classique [PHP](http://www.php.net) couplé à une base de données [SQLite](http://www.sqlite.org/). Les échanges entre le navigateur et le serveur se font intégralement en [JSON](http://en.wikipedia.org/wiki/JSON). Nous avons voulu reprendre le principe de la _[single-page application](http://en.wikipedia.org/wiki/Single-page_application)_ pour proposer aux utilisateurs des interactions plus fluides et plus naturelles.
 
 L'aspect sécurité a également été prise en compte. Les dashboards pouvant être soit à usage privé, soit partagés avec un groupe d'utilisateurs spécifiques, ou finalement public (accessible sans authentification à toutes personnes connaissant son URL). Le système de droits sur les dashboards a été intégré avec le système de permissions présents dans POM, il est ainsi possible à un administrateur de partager un dashboard avec uniquement certains profils d'utilisateurs, ces actions étant directement possibles depuis l'interface de configuration de POM. La gestion des permissions ne s'arrête pas là, les informations contenues dans les widgets sont également soumises aux droits de l'utilisateur : un utilisateur ne pourra pas afficher des serveurs ou des services qui ne lui sont pas accessibles.
+
+Mes contributions sur ce projet :
+
+-  participation à la rédaction des spécifications techniques et fonctionnelles
+-  développement du code PHP côté serveur
+-  développement de l'interface cliente en Javascript
+-  proposition du style graphique du Dashboard
+-  rédaction de la documentation technique et transfert de compétences vers l'équipe d'Exosec
