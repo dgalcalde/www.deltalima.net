@@ -7,6 +7,7 @@ from flask import Flask, render_template, url_for, make_response
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 from werkzeug import SharedDataMiddleware
+from BeautifulSoup import BeautifulSoup
 
 locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
 
@@ -39,6 +40,14 @@ def dateformat(value, format=u'%H:%M / %d-%m-%Y'):
     if not value:
         return u''
     return unicode(value.strftime(format).decode('utf8'))
+
+@app.template_filter()
+def summarize(html):
+    if '<!-- BODY -->' in html:
+        html = html[:html.index('<!-- BODY -->')]
+        return unicode(BeautifulSoup(html))
+    else:
+        return unicode(BeautifulSoup(html).p)
 
 #
 # Routes
