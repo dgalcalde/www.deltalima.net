@@ -25,7 +25,7 @@
     <a id="nav-projects" {% if request.path.startswith('/projets/') %}class="active"{% endif %} href="{{ url_for('page', path='projets') }}" title="Projets">Projets</a>
    </div>
    <div class="span2">
-    <a id="nav-blog" {% if request.path.startswith('blog') %}class="active"{% endif %} href="{{ url_for('page', path='blog') }}" title="Blog">Blog</a>
+    <a id="nav-blog" {% if request.path.startswith('/blog/') %}class="active"{% endif %} href="{{ url_for('page', path='blog') }}" title="Blog">Blog</a>
    </div>
    <div class="span2">
     <a id="nav-contact" href="mailto:laurent@deltalima.net" title="Contact">Contact</a>
