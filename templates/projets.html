@@ -2,33 +2,8 @@
 
 {% block content %}
 
-{% for project in articles %}
-<section class="{{ loop.cycle('odd', 'even') }}">
- <a href="{{ url_for('page', path=project.path) }}"><h3>{{ project.title }}</h3></a>
-
- <div class="row">
-
-  <div class="span2">
-   <p class="published_date"><i class="icon-calendar"></i> {{ project.published_date|dateformat('%B %Y') }}</p>
-
-   {% if project.tags %}
-    <p class="tags"><i class="icon-tags"></i>
-    {% for tag in project.tags|sort %}
-      <a href="{{ url_for('show_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
-    {% endfor %}
-    </p>
-   {% endif %}
-  </div>
-
-  <div class="span6">
-   {{ project.summary }}
-
-   <p class="readmore"><a href="{{ url_for('page', path=project.path) }}">Lire la suite...</a></p>
-  </div>
-
- </div> <!-- row -->
-
-</section>
+{% for article in articles %}
+ {% include 'article_summary.html' %}
 {% else %}
  <p>Pas encore de projets :(</p>
 {% endfor %}

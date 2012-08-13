@@ -20,6 +20,18 @@
     {{ article }}
   </div>
 
+  <div class="span4">
+   {% if article.screenshots %}
+   <p class="screenshots">
+    {% for screenshot in article.screenshots %}
+     <a href="{{ url_for('static', filename='img/' + screenshot) }}" alt="Screenshot {{ loop.index }}">
+      <img src="{{ url_for('static', filename='img/thumb-' + screenshot) }}">
+     </a>
+    {% endfor %}
+   </p>
+   {% endif %}
+  </div>
+
  </div> <!-- row -->
 
 </section>
