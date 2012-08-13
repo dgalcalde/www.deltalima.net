@@ -6,7 +6,7 @@ tags:
 - jquery
 - json
 screenshots:
-- pomstx.jpg
+- logo_POM_by_exo.jpg
 - pom-dashboard-01.png
 summary: Développement d'un tableau de bord (dashboard) pour intégration dans la solution POM (Plateforme Ouverte de Monitoring). Le dashboard permet aux utilisateurs de construire leurs propres interfaces, adaptées à leurs besoins.
 
