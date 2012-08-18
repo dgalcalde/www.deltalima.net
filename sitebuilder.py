@@ -3,10 +3,11 @@
 
 import os, sys, locale
 
-from flask import Flask, render_template, url_for, make_response
+from flask import Flask, render_template, url_for, make_response, request
 from flask_flatpages import FlatPages
 from flask_frozen import Freezer
 from werkzeug import SharedDataMiddleware
+from werkzeug.contrib.atom import AtomFeed
 from BeautifulSoup import BeautifulSoup
 
 locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
@@ -50,6 +51,26 @@ def summarize(html):
         return unicode(BeautifulSoup(html).p)
 
 #
+# Helpers
+#
+def generate_feed(title, articles):
+    feed = AtomFeed(title,
+                    feed_url=request.url,
+                    url=request.url_root,
+                    author='Laurent Meunier',
+                    icon=url_for('static', filename='favicon.ico'))
+
+    articles = sorted(articles, reverse=True, key=lambda p: p.meta['published_date'])
+    for article in articles:
+        feed.add(article.meta['title'],
+                 unicode(article.html),
+                 content_type='html',
+                 author='Laurent Meunier',
+                 url=url_for('page', path=article.path, _external=True),
+                 updated=article.meta['published_date'])
+    return feed.get_response()
+
+#
 # Routes
 #
 @app.route('/sitemap.xml')
@@ -75,6 +96,18 @@ def sitemap():
     response = make_response(render_template('sitemap.xml', urls=urls))
     response.headers['Content-type'] = 'text/xml; charset=utf-8'
     return response
+
+@app.route('/feed/all.atom')
+def feed_all():
+    title = 'deltalima.net - Recent Articles'
+    articles = (p for p in pages if 'published_date' in p.meta)
+    return generate_feed(title, articles)
+
+@app.route('/feed/tag/<tag>.atom')
+def feed_tag(tag):
+    title = "deltalima.net - Recent Articles for tag '" + tag + "'"
+    articles = (p for p in pages if 'published_date' in p.meta and tag in p.meta.get('tags', []))
+    return generate_feed(title, articles)
 
 @app.route('/tag/<tag>/')
 def show_tag(tag):

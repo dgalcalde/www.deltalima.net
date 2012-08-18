@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+{% block head %}
+    {{ super() }}
+    <link href="{{ url_for('feed_tag', tag=tag) }}" rel="alternate" title="deltalima.net - Recent Articles for tag '{{ tag }}'" type="application/atom+xml">
+{% endblock %}
+
 {% block content %}
 
 <p>Liste des articles avec le tag &laquo; <b>{{ tag }}</b> &raquo;.</p>

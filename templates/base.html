@@ -1,11 +1,14 @@
 <!DOCTYPE HTML>
 <html lang="fr">
 <head>
+{% block head %}
     <meta charset="utf-8">
     <title>{% if page.title %}{{ page.title }} - {% endif %}deltalima.net</title>
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
     <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
+    <link href="{{ url_for('feed_all') }}" rel="alternate" title="deltalima.net - Recent Articles" type="application/atom+xml">
+{% endblock %}
 </head>
 <body>
 
