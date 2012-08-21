@@ -103,13 +103,13 @@ def feed_all():
     articles = (p for p in pages if 'published_date' in p.meta)
     return generate_feed(title, articles)
 
-@app.route('/feed/tag/<tag>.atom')
+@app.route('/feed/tag/<string:tag>.atom')
 def feed_tag(tag):
     title = "deltalima.net - Recent Articles for tag '" + tag + "'"
     articles = (p for p in pages if 'published_date' in p.meta and tag in p.meta.get('tags', []))
     return generate_feed(title, articles)
 
-@app.route('/tag/<tag>/')
+@app.route('/tag/<string:tag>/')
 def show_tag(tag):
     articles = (p for p in pages if tag in p.meta.get('tags', []))
     articles = sorted(articles, reverse=True, key=lambda p: p.meta['published_date'])
@@ -118,9 +118,9 @@ def show_tag(tag):
     }
     return render_template('tag.html', tag=tag, page=page, articles=articles)
 
-@app.route('/')
+@app.route('/', defaults={'path': 'index'})
 @app.route('/<path:path>/')
-def page(path="index"):
+def page(path):
     page = pages.get_or_404(path)
     layout = page.meta.get('layout', 'page') + '.html'
 
