@@ -1,0 +1,30 @@
+<a name="{{ article.path }}"></a>
+<section>
+ <a href="{{ url_for('page', path=article.path) }}"><h3>{{ article.title }}</h3></a>
+
+ <div class="row">
+
+  <div class="span2">
+   <p class="published_date"><i class="icon-calendar"></i> {{ article.published_date|dateformat('%B %Y') }}</p>
+
+   {% if article.tags %}
+    <p class="tags"><i class="icon-tags"></i>
+    {% for tag in article.tags|sort %}
+      <a href="{{ url_for('show_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+    {% endfor %}
+    </p>
+   {% endif %}
+  </div>
+
+  <div class="span6">
+   {% if article.summary %}
+    {{ article.summary }}
+   {% else %}
+    {{ article.html|summarize|safe }}
+   {% endif %}
+   <p class="readmore"><a href="{{ url_for('page', path=article.path) }}">Lire la suite...</a></p>
+  </div>
+
+ </div> <!-- row -->
+
+</section>

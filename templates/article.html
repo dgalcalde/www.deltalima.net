@@ -1,0 +1,37 @@
+<a name="{{ article.path }}"></a>
+<section>
+ <a href="{{ url_for('page', path=article.path) }}"><h3>{{ article.title }}</h3></a>
+
+ <div class="row">
+
+  <div class="span2">
+   <p class="published_date"><i class="icon-calendar"></i> {{ article.published_date|dateformat('%B %Y') }}</p>
+
+   {% if article.tags %}
+    <p class="tags"><i class="icon-tags"></i>
+    {% for tag in article.tags|sort %}
+      <a href="{{ url_for('show_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
+    {% endfor %}
+    </p>
+   {% endif %}
+  </div>
+
+  <div class="span6">
+    {{ article }}
+  </div>
+
+  <div class="span4">
+   {% if article.screenshots %}
+   <p class="screenshots">
+    {% for screenshot in article.screenshots %}
+     <a href="{{ url_for('static', filename='img/' + screenshot) }}" alt="Screenshot {{ loop.index }}">
+      <img src="{{ url_for('static', filename='img/thumb-' + screenshot) }}">
+     </a>
+    {% endfor %}
+   </p>
+   {% endif %}
+  </div>
+
+ </div> <!-- row -->
+
+</section>
