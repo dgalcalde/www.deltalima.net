@@ -4,7 +4,7 @@
 import os, sys, locale
 
 from flask import Flask, render_template, url_for, make_response, request
-from flask_flatpages import FlatPages
+from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
 from werkzeug import SharedDataMiddleware
 from werkzeug.contrib.atom import AtomFeed
@@ -73,6 +73,10 @@ def generate_feed(title, articles):
 #
 # Routes
 #
+@app.route('/pygments.css')
+def pygments_css():
+    return pygments_style_defs(), 200, {'Content-Type': 'text/css'}
+
 @app.route('/sitemap.xml')
 def sitemap():
     urls = []

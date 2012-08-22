@@ -21,7 +21,28 @@
   </div>
 
   <div class="span4">
+   {% if article.links %}
+   <h4>Liens</h4>
+   <ul class="links">
+    {% for link in article.links %}
+    <li><a href="{{ link.href }}" alt="Link to {{ name }}">
+       {{ link.name }}
+     </a></li>
+    {% endfor %}
+   </ul>
+   {% endif %}
+   {% if article.attachments %}
+   <h4>Fichiers</h4>
+   <ul class="attachments">
+    {% for file in article.attachments %}
+    <li><a href="{{ url_for('static', filename=file) }}" alt="Download file {{ file }}">
+       {{ file }}
+     </a></li>
+    {% endfor %}
+   </ul>
+   {% endif %}
    {% if article.screenshots %}
+   <h4>Screenshots</h4>
    <p class="screenshots">
     {% for screenshot in article.screenshots %}
      <a href="{{ url_for('static', filename='img/' + screenshot) }}" alt="Screenshot {{ loop.index }}">
