@@ -31,7 +31,7 @@ En pratique, on va retrouver plusieurs composants :
 
 Le cheminement est le suivant : navigateur web → Tomcat → guacd → VNC ou RDP.
 
-Pour accéder à Guacamole, les utilisateurs doivent tout d'abord s'authentifier dans l'interface web avant d'accéder à l'interface de prise en main à distance. Sur le principe, je ne trouve rien à redire, l'accès aux ressources VNC et RDP est protégée et il faut un compte pour y accéder. Sauf que dans mon cas, j'ai un unique serveur RDP en backend (géré par [xrdp](http://www.xrdp.org/)) qui demande lui aussi une authentification avant d'ouvrir une session. Pour accéder à mon bureau à distance, je me retrouve donc avec deux systèmes d'authentification à la suite : Guacamole et xrdp. Pas insurmontable, mais quand même très gênant pour mes utilisateurs. D'où l'idée de développer un petit truc rapidement en Java pour supprimer l'authentification de Guacamole et ainsi arriver directement sur la fenêtre de login de xrdp.
+Pour accéder à Guacamole, les utilisateurs doivent tout d'abord s'authentifier dans l'interface web avant d'accéder à l'interface de prise en main à distance. Sur le principe, je ne trouve rien à redire, l'accès aux ressources VNC et RDP est protégé et il faut un compte pour y accéder. Sauf que dans mon cas, j'ai un unique serveur RDP en backend (géré par [xrdp](http://www.xrdp.org/)) qui demande lui aussi une authentification avant d'ouvrir une session. Pour accéder à mon bureau à distance, je me retrouve donc avec deux systèmes d'authentification à la suite : Guacamole et xrdp. Pas insurmontable, mais quand même très gênant pour mes utilisateurs. D'où l'idée de développer un petit truc rapidement en Java pour supprimer l'authentification de Guacamole et ainsi arriver directement sur la fenêtre de login de xrdp.
 
 Par chance, Guacamole nous permet de changer facilement la méthode pour authentifier les utilisateurs (comme le monde est bien fait !). Il suffit d'écrire une nouvelle classe Java qui implémente l'interface [AuthenticationProvider](http://guac-dev.org/doc/guacamole-ext/net/sourceforge/guacamole/net/auth/AuthenticationProvider.html). Il y a une unique fonction à implémenter : getAuthorizedConfigurations(). Cette fonction récupère en paramètre un objet [Credentials](http://guac-dev.org/doc/guacamole-ext/net/sourceforge/guacamole/net/auth/Credentials.html) que nous allons royalement ignorer pour renvoyer la liste des configurations disponibles.
 
@@ -46,7 +46,7 @@ Bon, trêve de blabla, nous allons voir maintenant comment intégrer [guacamole-
 
 ### Compiler guacamole-noauth
 
-Le projet guacamole-noauth est disponible sur [un dépôt git public](http://git.deltalima.net/guacamole-noauth/), vous pouvez souhaite cloner le dépôt :
+Le projet guacamole-noauth est disponible sur [un dépôt git public](http://git.deltalima.net/guacamole-noauth/), vous pouvez soit cloner le dépôt :
 
     :::bash
     $ git clone http://git.deltalima.net/guacamole-noauth/
@@ -93,7 +93,7 @@ Le fichier de configuration de Guacamole est _/etc/guacamole/guacamole.propertie
     auth-provider: net.deltalima.guacamole.NoAuthenticationProvider
     noauth-config: /etc/guacamole/noauth-config.xml
 
-Nous avons donc remplacer le _auth-provider_ par défaut par notre nouvelle classe _NoAuthenticationProvider_. La liste des serveurs VNC et RDP se trouve maintenant dans le fichier de configuration défini par _noauth-config_.
+Nous avons donc remplacé le _auth-provider_ par défaut par notre nouvelle classe _NoAuthenticationProvider_. La liste des serveurs VNC et RDP se trouve maintenant dans le fichier de configuration défini par _noauth-config_.
 
 Créons notre fichier __/etc/guacamole/noauth-config.xml__ avec le contenu suivant (à adapter) :
 
