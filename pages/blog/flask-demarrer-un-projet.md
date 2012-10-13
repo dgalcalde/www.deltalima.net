@@ -123,6 +123,6 @@ Tout fonctionne correctement ? Ouf, on va pouvoir commiter tout ça avant de tou
     (env) src.git $ git commit -m "Initial commit"
 
 
-Et voilà, ce sera tout pour cet article ! Dans la suite on verra comment packager l'application avec [Distribute](http://packages.python.org/distribute/) et la déployer en prod avec [Fabric](http://docs.fabfile.org/en/1.4.3/index.html).
+Et voilà, ce sera tout pour cet article ! Dans la suite on verra comment packager l'application avec [setuptools](http://pypi.python.org/pypi/setuptools) et la déployer en prod avec [Fabric](http://docs.fabfile.org/en/1.4.3/index.html).
 
 
