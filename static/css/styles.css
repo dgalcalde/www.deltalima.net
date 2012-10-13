@@ -108,6 +108,12 @@ nav a:hover {
     background-position: 10px center;
     padding-left: 45px;
 }
+#nav-code {
+    background-image: url('../img/icon-code.png');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    padding-left: 45px;
+}
 
 
 /*
