@@ -8,6 +8,8 @@ published_date: 2012-09-21
 links:
 - name: Flask
   href: http://flask.pocoo.org/
+- name: FlaskTODO
+  href: http://git.deltalima.net/flasktodo/
 
 
 Si vous faites un peu de développement, vous devez savoir que démarrer un projet est toujours un peu pénible. On se pose pleins de questions sur les meilleurs choix à prendre : comment organiser son code, monter un environnement de développement, packager son application pour la partager avec la communauté, déployer efficacement en production, etc...
@@ -125,4 +127,8 @@ Tout fonctionne correctement ? Ouf, on va pouvoir commiter tout ça avant de tou
 
 Et voilà, ce sera tout pour cet article ! Dans la suite on verra comment packager l'application avec [setuptools](http://pypi.python.org/pypi/setuptools) et la déployer en prod avec [Fabric](http://docs.fabfile.org/en/1.4.3/index.html).
 
+### FlaskTODO
 
+Pour illustrer cet article et les suivants, rien de mieux qu'une petite application développée avec Flask. C'est le but de [FlaskTODO](http://git.deltalima.net/flasktodo/), une application toute bête et toute simple qui gère une TODO list.
+
+Et donc pour ce premier article (qui ne va pas bien loin finalement), le résultat est visible dans le [commit dd046bd](http://git.deltalima.net/flasktodo/tree/?id=dd046bdd3516a7e44f926c7ba6373393025b0e15).
