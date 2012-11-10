@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springsource.org/dtd/spring-beans.dtd">
+
+<beans default-autowire="no" default-dependency-check="none" default-lazy-init="false">
+
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="location" value="applicationContext-spring-security-cas.properties" />
+    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+  </bean>
+
+  <bean id="filterChainProxy" class="org.springframework.security.util.FilterChainProxy" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="filterInvocationDefinitionSource">
+      <value>
+        <![CDATA[CONVERT_URL_TO_LOWERCASE_BEFORE_COMPARISON
+                 PATTERN_TYPE_APACHE_ANT
+                 /**=securityContextHolderAwareRequestFilter,httpSessionContextIntegrationFilter,httpSessionReuseDetectionFilter,logoutFilter,casProcessingFilter,basicProcessingFilter,requestParameterProcessingFilter,anonymousProcessingFilter,pentahoSecurityStartupFilter,exceptionTranslationFilter,filterInvocationInterceptor,casSingleSignOutFilter]]>
+      </value>
+    </property>
+  </bean>
+
+  <bean id="serviceProperties" class="org.springframework.security.ui.cas.ServiceProperties" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="service" value="${cas.pentaho_url}/j_spring_cas_security_check" />
+    <property name="sendRenew" value="false" />
+  </bean>
+
+  <bean id="casProcessingFilter" class="org.springframework.security.ui.cas.CasProcessingFilter" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="authenticationManager">
+      <ref bean="authenticationManager" />
+    </property>
+    <property name="authenticationFailureUrl" value="/Login?login_error=2" />
+    <property name="defaultTargetUrl" value="/" />
+    <property name="filterProcessesUrl" value="/j_spring_cas_security_check" />
+  </bean>
+
+  <bean id="casSingleSignOutFilter" class="org.jasig.cas.client.session.SingleSignOutFilter" />
+
+  <bean id="casSingleSignOutHttpSessionListener" class="org.jasig.cas.client.session.SingleSignOutHttpSessionListener" />
+
+  <bean id="exceptionTranslationFilter" class="org.springframework.security.ui.ExceptionTranslationFilter" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="authenticationEntryPoint">
+      <ref local="casProcessingFilterEntryPoint" />
+    </property>
+    <property name="accessDeniedHandler">
+      <bean class="org.springframework.security.ui.AccessDeniedHandlerImpl" />
+    </property>
+  </bean>
+
+  <bean id="casProcessingFilterEntryPoint" class="org.springframework.security.ui.cas.CasProcessingFilterEntryPoint" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="loginUrl" value="${cas.server_url}/login" />
+    <property name="serviceProperties">
+      <ref local="serviceProperties" />
+    </property>
+  </bean>
+
+  <bean id="authenticationManager" class="org.springframework.security.providers.ProviderManager" autowire="default" dependency-check="default" lazy-init="default">
+    <property name="providers">
+      <list>
+        <ref bean="daoAuthenticationProvider" />
+        <ref bean="anonymousAuthenticationProvider" />
+        <ref bean="casAuthenticationProvider" />
+      </list>
+    </property>
+  </bean>
+
+  <bean id="casAuthenticationProvider" class="org.springframework.security.providers.cas.CasAuthenticationProvider">
+    <property name="userDetailsService">
+      <ref bean="userDetailsService" />
+    </property>
+    <property name="serviceProperties">
+      <ref local="serviceProperties" />
+    </property>
+    <property name="ticketValidator">
+      <ref local="ticketValidator" />
+    </property>
+    <property name="key" value="my_password_for_this_auth_provider_only" />
+  </bean>
+
+  <bean id="ticketValidator" class="org.jasig.cas.client.validation.Cas20ServiceTicketValidator" autowire="default" dependency-check="default" lazy-init="default">
+    <constructor-arg index="0" value="${cas.server_url}" />
+  </bean>
+
+  <bean id="logoutFilter" class="org.springframework.security.ui.logout.LogoutFilter" autowire="default" dependency-check="default" lazy-init="default">
+    <constructor-arg value="${cas.server_url}/logout?service=${cas.pentaho_url}" />
+    <constructor-arg>
+      <list>
+        <bean class="org.pentaho.platform.web.http.security.PentahoLogoutHandler" />
+        <bean class="org.springframework.security.ui.logout.SecurityContextLogoutHandler" />
+      </list>
+    </constructor-arg>
+    <property name="filterProcessesUrl" value="/Logout" />
+  </bean>
+
+</beans>
