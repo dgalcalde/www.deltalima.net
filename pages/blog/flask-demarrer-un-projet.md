@@ -16,6 +16,8 @@ Si vous faites un peu de développement, vous devez savoir que démarrer un proj
 
 Bref, pas toujours facile d'y répondre quand on débarque sur un nouveau framework ou un nouveau langage. Du coup, je vais tenter de partager avec vous quelques conseils et astuces autour du [framework Flask](http://flask.pocoo.org) au travers de plusieurs articles. Je ne prétends pas avoir les meilleures idées ni les meilleures méthodes, mais j'ai eu l'occasion de les tester et de les améliorer avec les quelques projets réalisés ces derniers mois, et je m'en suis toujours bien sorti (ou pas trop mal en tout cas :p).
 
+<!-- BODY -->
+
 Pour le premier article de la série, on va commencer doucement par la base : démarrer un nouveau projet et bien s'organiser. C'est toujours mieux de partir sur de bonnes bases pour éviter de tout chambouler par la suite. Un projet bien organisé permet également de s'y retrouver plus facilement (pour les nouveaux contributeurs, ou si vous revenez dessus au bout de quelques temps).
 
 Alors, que va-t-on voir aujourd'hui ?
@@ -125,7 +127,7 @@ Tout fonctionne correctement ? Ouf, on va pouvoir commiter tout ça avant de tou
     (env) src.git $ git commit -m "Initial commit"
 
 
-Et voilà, ce sera tout pour cet article ! Dans la suite on verra comment packager l'application avec [setuptools](http://pypi.python.org/pypi/setuptools) et la déployer en prod avec [Fabric](http://docs.fabfile.org/en/1.4.3/index.html).
+Et voilà, ce sera tout pour cet article ! Dans la suite on verra comment packager l'application avec [distribute](http://pypi.python.org/pypi/distribute) et la déployer en prod avec [Fabric](http://docs.fabfile.org/en/1.4.3/index.html).
 
 ### FlaskTODO
 

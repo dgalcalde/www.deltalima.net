@@ -24,6 +24,8 @@ Avant d'entrer dans le vif du sujet, juste deux mots sur CAS : c'est un système
 
 Quant à Pentaho, si vous êtes arrivés sur cette page c'est que vous le connaissez sûrement déjà. Sinon, c'est une application web de [Business Intelligence](http://fr.wikipedia.org/wiki/Business_Intelligence).
 
+<!-- BODY -->
+
 ### Principe
 
 CAS, comme son nom l'indique, est un service d'authentification. Il ne gère pas du tout la partie autorisation qui restera à la charge de Pentaho. Et comme vous connaissez bien Pentaho, vous savez que, dans la configuration par défaut, les autorisations se gèrent dans la console d'administration : on affecte des rôles à des utilisateurs.
