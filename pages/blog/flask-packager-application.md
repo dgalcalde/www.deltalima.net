@@ -17,11 +17,11 @@ links:
 
 Troisième article de [la série dédiée au framework Flask](/tag/Flask/), cette fois-ci nous allons voir comment packager une application en utilisant [distribute](http://pypi.python.org/pypi/distribute). Distribute est une bibliothèque Python permettant de packager une application puis d'installer facilement le package créé. Le but étant de pouvoir distribuer une application développée avec Flask et de permettre son installation le plus facilement possible.
 
-Je ne vous apprends rien en vous disant que l'adoption d'une application se fait, en partie, en fonction de sa facilité d'installation. Bien sûr, c'est loin d'être le seul critère, mais généralement l'installation est le premier contacte de l'utilisateur avec l'appli, et si on ne veut pas le faire fuir tout de suite, il est préférable que cette étape se passe le mieux possible. Et comme on est tous des vieux qui trainons nos vielles habitudes, le mieux est encore d'utiliser des outils standards et biens connus de tous.
+Je ne vous apprends rien en vous disant que l'adoption d'une application se fait, en partie, en fonction de sa facilité d'installation. Bien sûr, c'est loin d'être le seul critère, mais généralement l'installation est le premier contact de l'utilisateur avec l'appli, et si on ne veut pas le faire fuir tout de suite, il est préférable que cette étape se passe le mieux possible. Et comme on est tous des vieux qui trainons nos vielles habitudes, le mieux est encore d'utiliser des outils standards et biens connus de tous.
 
 <!-- BODY -->
 
-Les bibliothèques utilisées par Flask et Flask lui-même sont packagés en utilisant distribute. Ce qui nous permet de les installer très facilement depuis le [cheeseshop](http://pypi.python.org) avec un simple commande :
+Les bibliothèques utilisées par Flask et Flask lui-même sont packagés en utilisant distribute. Ce qui nous permet de les installer très facilement depuis le [cheeseshop](http://pypi.python.org) avec une simple commande :
 
     ::bash
     $ pip install Flask
@@ -56,13 +56,13 @@ Un fichier *setup.py* basique pour FlaskTODO ressemble à ceci :
 
 La plupart des champs sont suffisamment explicites pour ne pas nécessiter d'explication. Il y en a juste trois que je vais détailler rapidement : packages, include_pacakge_data et zip_safe.
 
-- *packages* : Pour que distribute puisse construire votre package, il faut lui indiquer tous les modules de votre application. Pas seulement le module principale , mais également tous les sous-modules. Pour cela, soit vous tenez la liste à la main, soit vous utilisez *find_packages()* qui, comme son nom l'indique, va trouver tout seul les pacakges.
+- *packages* : Pour que distribute puisse construire votre package, il faut lui indiquer tous les modules de votre application. Pas seulement le module principal , mais également tous les sous-modules. Pour cela, soit vous tenez la liste à la main, soit vous utilisez *find_packages()* qui, comme son nom l'indique, va trouver tout seul les packages.
 - *include_package_data* : Ce paramètre indique à distribute de lire le contenu d'un fichier *MANIFEST.in* et d'ajouter dans le package tous les fichiers qui y sont listés. C'est ce que nous utiliserons pour packager le contenu des dossiers *static* et *template*.
-- *zip_safe* : Ce flag indique si l'application doit être installée sous forme de fichier Zip ou d'une arborescence classique dossiers/fichiers. Il est conseillé de désactivé l'installation au format Zip car son support n'est pas universel dans toutes les implémentations de Python et ça rend le debuging pénible (des informations sont manquantes comme le nom du fichier ou la ligne où s'est produit l'erreur).
+- *zip_safe* : Ce flag indique si l'application doit être installée sous forme de fichier Zip ou d'une arborescence classique dossiers/fichiers. Il est conseillé de désactiver l'installation au format Zip car son support n'est pas universel dans toutes les implémentations de Python et ça rend le debuging pénible (des informations sont manquantes comme le nom du fichier ou la ligne où s'est produit l'erreur).
 
 ### Gestion des dépendances
 
-Vous avez du remarquer la ligne contenant *install_requires*, elle indique les dépendances à installer en même temps que votre package. Par défaut, c'est la dernière version disponible sur PyPI qui est installée, mais vous pouvez modifier ce comportement en utilisant des opérateurs comme : *>=*, *==*, ou *<=*.
+Vous avez dû remarquer la ligne contenant *install_requires*, elle indique les dépendances à installer en même temps que votre package. Par défaut, c'est la dernière version disponible sur PyPI qui est installée, mais vous pouvez modifier ce comportement en utilisant des opérateurs comme : *>=*, *==*, ou *<=*.
 
     :::python
     install_requires=[
@@ -74,7 +74,7 @@ Vous avez du remarquer la ligne contenant *install_requires*, elle indique les d
 
 ### Ajouter des ressources
 
-Dans son comportement par défaut, distribute package uniquement les fichiers Python présents dans les modules listés par *packages*. Si on package notre application en l'état, on ne récupère pas les dossiers comme 'static' ou 'template' (qui sont pourant nécessaires). Pour ajouter ces dossiers, il faut créer un fichier *MANIFEST.in* dans le même dossier que votre *setup.py*. Les fichiers listés dans ce fichier seront ajoutés à l'archive.
+Dans son comportement par défaut, distribute package uniquement les fichiers Python présents dans les modules listés par *packages*. Si on package notre application en l'état, on ne récupère pas les dossiers comme 'static' ou 'template' (qui sont pourtant nécessaires). Pour ajouter ces dossiers, il faut créer un fichier *MANIFEST.in* dans le même dossier que votre *setup.py*. Les fichiers listés dans ce fichier seront ajoutés à l'archive.
 
     recursive-include flasktodo/templates *
     recursive-include flasktodo/static *
@@ -99,11 +99,12 @@ Pour installer le package, rien de plus simple : on va créer un nouveau virtale
     :::bash
     $ virtualenv env
     $ . ./env/bin/activate
+    (env)$ wget http://www.deltalima.net/static/FlaskTODO-0.1.tar.gz
     (env)$ tar xzf FlaskTODO-0.1.tar.gz
     (env)$ cd FlaskTODO-0.1/
     (env)$ python setup.py install
 
-Et voilà, en cinq commandes j'ai pu installé mon application ainsi que toute ses dépendances dans un nouvel environnement.
+Et voilà, en six commandes j'ai pu installer mon application ainsi que toutes ses dépendances dans un nouvel environnement.
 
 Si tout s'est bien passé, on peut maintenant démarrer FlaskTODO :
 
@@ -114,3 +115,8 @@ Si tout s'est bien passé, on peut maintenant démarrer FlaskTODO :
      * Running on http://127.0.0.1:5000/
 
 
+### Fin et suite
+
+Tout est intégré dans Git, on en est au commit [92aa6f](http://git.deltalima.net/flasktodo/tree/?id=92aa6f84b11e19f38fe47652fd251ba7224828e3).
+
+Pour la suite, on va enfin commencer à déployer notre appli en prod. Au menu, que du bon : [nginx](http://nginx.org/), [gunicorn](http://gunicorn.org/) et [WSGI](http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface).
