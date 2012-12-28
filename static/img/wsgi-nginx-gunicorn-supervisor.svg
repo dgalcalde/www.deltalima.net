@@ -1,0 +1,939 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg4978"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="wsgi-nginx-gunicorn-supervisor.svg"
+   inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor.png"
+   inkscape:export-xdpi="250"
+   inkscape:export-ydpi="250">
+  <defs
+     id="defs4980">
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Send"
+       style="overflow:visible;">
+      <path
+         id="path6414"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.3) rotate(180) translate(-2.3,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;">
+      <path
+         id="path6408"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path6402"
+         style="fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow1Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow1Lend"
+       style="overflow:visible;">
+      <path
+         id="path6384"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         style="fill-rule:evenodd;stroke:#000000;stroke-width:1.0pt;"
+         transform="scale(0.8) rotate(180) translate(12.5,0)" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202"
+       id="radialGradient5040"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(3.543015,2.373681,-1.541928,2.30152,266.334,-1874.238)"
+       cx="255.39285"
+       cy="665.75568"
+       fx="255.39285"
+       fy="665.75568"
+       r="6.5" />
+    <linearGradient
+       id="linearGradient2202">
+      <stop
+         style="stop-color:#797979;stop-opacity:1;"
+         offset="0"
+         id="stop2204" />
+      <stop
+         style="stop-color:#cbcbcb;stop-opacity:1;"
+         offset="1"
+         id="stop2206" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient2202-4">
+      <stop
+         style="stop-color:#797979;stop-opacity:1;"
+         offset="0"
+         id="stop2204-7" />
+      <stop
+         style="stop-color:#cbcbcb;stop-opacity:1;"
+         offset="1"
+         id="stop2206-1" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5207">
+      <stop
+         style="stop-color:#797979;stop-opacity:1;"
+         offset="0"
+         id="stop5209" />
+      <stop
+         style="stop-color:#cbcbcb;stop-opacity:1;"
+         offset="1"
+         id="stop5211" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5214">
+      <stop
+         style="stop-color:#797979;stop-opacity:1;"
+         offset="0"
+         id="stop5216" />
+      <stop
+         style="stop-color:#cbcbcb;stop-opacity:1;"
+         offset="1"
+         id="stop5218" />
+    </linearGradient>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-1"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-9"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-7"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-4"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-5"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-7"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-17"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-6"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-4"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-3"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7546"
+       gradientUnits="userSpaceOnUse"
+       x1="100"
+       y1="300.66574"
+       x2="95"
+       y2="300.57648" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7548"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-45,-54.5)"
+       x1="100"
+       y1="297.36218"
+       x2="95"
+       y2="297.36218" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7550"
+       gradientUnits="userSpaceOnUse"
+       x1="96.60714"
+       y1="305.04074"
+       x2="93.48214"
+       y2="298.52289" />
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-2"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-75"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7704"
+       gradientUnits="userSpaceOnUse"
+       x1="100"
+       y1="300.66574"
+       x2="95"
+       y2="300.57648" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7706"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(-45,-54.5)"
+       x1="100"
+       y1="297.36218"
+       x2="95"
+       y2="297.36218" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient2202-4"
+       id="linearGradient7708"
+       gradientUnits="userSpaceOnUse"
+       x1="96.60714"
+       y1="305.04074"
+       x2="93.48214"
+       y2="298.52289" />
+    <marker
+       inkscape:stockid="Arrow2Send"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Send-0"
+       style="overflow:visible">
+      <path
+         inkscape:connector-curvature="0"
+         id="path6414-35"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="matrix(-0.3,0,0,-0.3,0.69,0)" />
+    </marker>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3179"
+       id="radialGradient7255"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.512195,0,0,0.745011,107.3171,72.86401)"
+       cx="235"
+       cy="299.86218"
+       fx="235"
+       fy="299.86218"
+       r="5.5" />
+    <linearGradient
+       id="linearGradient3179">
+      <stop
+         id="stop3187"
+         offset="0"
+         style="stop-color:#f3eedf;stop-opacity:1;" />
+      <stop
+         style="stop-color:#d5c391;stop-opacity:1;"
+         offset="1"
+         id="stop3199" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="2.8"
+     inkscape:cx="223.73828"
+     inkscape:cy="949.71269"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1600"
+     inkscape:window-height="841"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4983">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 281.28187,130.56366 c -5.0446,-14.01787 -17.11221,-14.25138 -17.11221,-14.25138"
+       id="path5589-2-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 210.50477,132.77644 c -1.34934,4.40826 -5.51437,8.23037 -5.51437,8.23037"
+       id="path5589-2-0-7"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 210.41531,132.77644 c 1.34934,4.40826 5.51437,8.23037 5.51437,8.23037"
+       id="path5589-2-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 202.18804,88.431755 c -19.50357,21.188395 -5.294,52.368785 -5.294,52.368785"
+       id="path5589"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 217.38365,88.007452 c 7.76786,9.999998 0.96311,22.954938 0.96311,22.954938"
+       id="path5589-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <g
+       id="g5303"
+       transform="translate(-1.0714286,49.214285)"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767">
+      <g
+         id="g8045"
+         transform="translate(-78.571428,-338.92857)">
+        <path
+           style="fill:#80a7b0;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 280,372.36218 10,-5 10,5 -10,5 -10,-5 z"
+           id="path8047"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#a3c4cd;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 290,377.36218 10,-5 0,5 -10,5 0,-5 z"
+           id="path8049"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path8051"
+           d="m 280,372.36218 0,5 10,5 0,-5 -10,-5 z"
+           style="fill:#6cb4c4;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path8053"
+           d="m 290,367.36218 -10,5 0,5 10,5 10,-5 0,-5 -10,-5 z"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5114"
+         y="38.113297"
+         x="224.28572"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="38.113297"
+           x="224.28572"
+           id="tspan5116"
+           sodipodi:role="line">Nginx</tspan></text>
+    </g>
+    <g
+       id="g5387"
+       transform="translate(-2.2938027,51.214285)"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767">
+      <g
+         id="g5303-3"
+         transform="translate(1.2223741,38.571428)">
+        <g
+           transform="translate(-78.571428,-338.92857)"
+           id="g8045-7">
+          <path
+             inkscape:connector-curvature="0"
+             id="path8047-3"
+             d="m 280,372.36218 10,-5 10,5 -10,5 -10,-5 z"
+             style="fill:#80a7b0;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+          <path
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc"
+             id="path8049-8"
+             d="m 290,377.36218 10,-5 0,5 -10,5 0,-5 z"
+             style="fill:#a3c4cd;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+          <path
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc"
+             style="fill:#6cb4c4;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             d="m 280,372.36218 0,5 10,5 0,-5 -10,-5 z"
+             id="path8051-5" />
+          <path
+             inkscape:connector-curvature="0"
+             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="m 290,367.36218 -10,5 0,5 10,5 10,-5 0,-5 -10,-5 z"
+             id="path8053-5"
+             sodipodi:nodetypes="ccccccc" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+           x="224.28572"
+           y="38.113297"
+           id="text5114-46"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5116-9"
+             x="224.28572"
+             y="38.113297">WSGI App</tspan></text>
+      </g>
+      <g
+         id="g5303-6"
+         transform="translate(1.2223741,29.642857)">
+        <g
+           transform="translate(-78.571428,-338.92857)"
+           id="g8045-9">
+          <path
+             inkscape:connector-curvature="0"
+             id="path8047-7"
+             d="m 280,372.36218 10,-5 10,5 -10,5 -10,-5 z"
+             style="fill:#80a7b0;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+          <path
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc"
+             id="path8049-2"
+             d="m 290,377.36218 10,-5 0,5 -10,5 0,-5 z"
+             style="fill:#a3c4cd;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+          <path
+             inkscape:connector-curvature="0"
+             sodipodi:nodetypes="ccccc"
+             style="fill:#6cb4c4;fill-opacity:1;fill-rule:evenodd;stroke:none"
+             d="m 280,372.36218 0,5 10,5 0,-5 -10,-5 z"
+             id="path8051-1" />
+          <path
+             inkscape:connector-curvature="0"
+             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+             d="m 290,367.36218 -10,5 0,5 10,5 10,-5 0,-5 -10,-5 z"
+             id="path8053-3"
+             sodipodi:nodetypes="ccccccc" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+           x="224.28572"
+           y="38.113297"
+           id="text5114-4"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5116-4"
+             x="224.28572"
+             y="38.113297">Gunicorn</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g5565"
+       transform="translate(5,11.75)"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767">
+      <g
+         transform="translate(11.428571,32.785678)"
+         id="g5430">
+        <g
+           id="g5988"
+           transform="translate(153.21677,-140.14286)">
+          <path
+             transform="translate(-45,-54.5)"
+             sodipodi:open="true"
+             sodipodi:end="6.2570338"
+             sodipodi:start="0"
+             sodipodi:type="arc"
+             style="fill:url(#linearGradient7704);fill-opacity:1;stroke:none"
+             id="path3752"
+             sodipodi:cx="95"
+             sodipodi:cy="299.86218"
+             sodipodi:rx="5"
+             sodipodi:ry="2.5"
+             d="m 100,299.86218 c 0,1.38071 -2.238576,2.5 -5,2.5 -2.761424,0 -5,-1.11929 -5,-2.5 0,-1.38071 2.238576,-2.5 5,-2.5 2.710497,0 4.927415,1.07985 4.99829,2.43463" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3754"
+             d="m 45,240.86218 0,4 10,0 0,-4 -10,0 z"
+             style="fill:url(#linearGradient7706);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+          <path
+             transform="translate(-45,-59.5)"
+             d="m 100,299.86218 c 0,1.38071 -2.238576,2.5 -5,2.5 -2.761424,0 -5,-1.11929 -5,-2.5 0,-1.38071 2.238576,-2.5 5,-2.5 2.761424,0 5,1.11929 5,2.5 z"
+             sodipodi:ry="2.5"
+             sodipodi:rx="5"
+             sodipodi:cy="299.86218"
+             sodipodi:cx="95"
+             id="path3756"
+             style="fill:url(#linearGradient7708);fill-opacity:1;stroke:none"
+             sodipodi:type="arc" />
+          <path
+             inkscape:connector-curvature="0"
+             id="path3758"
+             d="m 45,240.45147 0,5.41071 c 0,0 1,2 5,2 4,0 5,-2 5,-2 l 0,-5.41071 c 0,0 -1,-2.58929 -5,-2.58929 -4,0 -5.089285,2.5 -5,2.58929 z"
+             style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+           x="199.54338"
+           y="115.57648"
+           id="text5405"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5407"
+             x="199.54338"
+             y="115.57648"
+             style="font-size:6px">DB</tspan></text>
+      </g>
+      <g
+         transform="translate(-30.714286,33.214286)"
+         id="g5439">
+        <g
+           id="g3740"
+           transform="translate(171.46938,-370.48228)"
+           style="stroke:#000000;stroke-width:1.25;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none">
+          <path
+             sodipodi:type="arc"
+             style="fill:#979797;fill-opacity:1;stroke:#000000;stroke-width:1.59342945;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             id="path3742"
+             sodipodi:cx="31.5"
+             sodipodi:cy="464.86218"
+             sodipodi:rx="6.5"
+             sodipodi:ry="2.5"
+             d="m 38,464.86218 c 0,1.38071 -2.910149,2.5 -6.5,2.5 -3.589851,0 -6.5,-1.11929 -6.5,-2.5 0,-1.38071 2.910149,-2.5 6.5,-2.5 3.589851,0 6.5,1.11929 6.5,2.5 z"
+             transform="matrix(0.76923,0,0,0.800015,30.76925,102.4656)" />
+          <path
+             sodipodi:type="arc"
+             style="fill:#979797;fill-opacity:1;stroke:#000000;stroke-width:1.59342945;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             id="path3744"
+             sodipodi:cx="31.5"
+             sodipodi:cy="464.86218"
+             sodipodi:rx="6.5"
+             sodipodi:ry="2.5"
+             d="m 38,464.86218 c 0,1.38071 -2.910149,2.5 -6.5,2.5 -3.589851,0 -6.5,-1.11929 -6.5,-2.5 0,-1.38071 2.910149,-2.5 6.5,-2.5 3.589851,0 6.5,1.11929 6.5,2.5 z"
+             transform="matrix(0.76923,0,0,0.800015,30.76926,100.9477)" />
+          <path
+             sodipodi:type="arc"
+             style="fill:#979797;fill-opacity:1;stroke:#000000;stroke-width:1.59342945;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             id="path3746"
+             sodipodi:cx="31.5"
+             sodipodi:cy="464.86218"
+             sodipodi:rx="6.5"
+             sodipodi:ry="2.5"
+             d="m 38,464.86218 c 0,1.38071 -2.910149,2.5 -6.5,2.5 -3.589851,0 -6.5,-1.11929 -6.5,-2.5 0,-1.38071 2.910149,-2.5 6.5,-2.5 3.589851,0 6.5,1.11929 6.5,2.5 z"
+             transform="matrix(0.76923,0,0,0.800015,30.76926,99.4655)" />
+          <path
+             transform="matrix(0.76923,0,0,0.800015,30.76926,98.00131)"
+             d="m 38,464.86218 c 0,1.38071 -2.910149,2.5 -6.5,2.5 -3.589851,0 -6.5,-1.11929 -6.5,-2.5 0,-1.38071 2.910149,-2.5 6.5,-2.5 3.589851,0 6.5,1.11929 6.5,2.5 z"
+             sodipodi:ry="2.5"
+             sodipodi:rx="6.5"
+             sodipodi:cy="464.86218"
+             sodipodi:cx="31.5"
+             id="path3748"
+             style="fill:#979797;fill-opacity:1;stroke:#000000;stroke-width:1.59342945;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+             sodipodi:type="arc" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+           x="217.40053"
+           y="115.26348"
+           id="text5405-6"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan5407-2"
+             x="217.40053"
+             y="115.26348"
+             style="font-size:6px">Files</tspan></text>
+      </g>
+    </g>
+    <g
+       id="g7946"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767"
+       transform="translate(0,8)">
+      <g
+         id="g8045-1"
+         transform="translate(-5.7224121,-246.78571)">
+        <path
+           style="fill:#80a7b0;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 280,372.36218 10,-5 10,5 -10,5 -10,-5 z"
+           id="path8047-0"
+           inkscape:connector-curvature="0" />
+        <path
+           style="fill:#a3c4cd;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           d="m 290,377.36218 10,-5 0,5 -10,5 0,-5 z"
+           id="path8049-0"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0" />
+        <path
+           id="path8051-3"
+           d="m 280,372.36218 0,5 10,5 0,-5 -10,-5 z"
+           style="fill:#6cb4c4;fill-opacity:1;fill-rule:evenodd;stroke:none"
+           sodipodi:nodetypes="ccccc"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="ccccccc"
+           id="path8053-0"
+           d="m 290,367.36218 -10,5 0,5 10,5 10,-5 0,-5 -10,-5 z"
+           style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+      </g>
+      <text
+         sodipodi:linespacing="125%"
+         id="text5114-2"
+         y="143.38814"
+         x="272.94556"
+         style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+         xml:space="preserve"><tspan
+           y="143.38814"
+           x="272.94556"
+           id="tspan5116-47"
+           sodipodi:role="line">supervisor</tspan></text>
+    </g>
+    <g
+       id="g5529"
+       transform="translate(21.994923,35.585575)"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767">
+      <g
+         inkscape:export-ydpi="555.2121"
+         inkscape:export-xdpi="555.2121"
+         inkscape:export-filename="C:\Documents and Settings\JCARTIER\Bureau\path3856.png"
+         id="g3181"
+         transform="translate(-31.571443,-275.2805)">
+        <path
+           d="m 218,276.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z"
+           sodipodi:ry="4"
+           sodipodi:rx="4"
+           sodipodi:cy="276.36218"
+           sodipodi:cx="214"
+           id="path3184"
+           style="fill:#d08b4e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           sodipodi:type="arc" />
+        <path
+           style="fill:#683910;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           d="m 216,274.36218 c -1,1 -0.94974,0.0259 -2,2 -1.59609,3 -4,2.208 -4,0 0,-2.208 1.792,-4 4,-4 2.208,0 2,-0.208 2,2 z"
+           id="path3186"
+           sodipodi:nodetypes="csssc"
+           inkscape:connector-curvature="0" />
+        <path
+           transform="translate(-1,1)"
+           style="fill:#000084;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           d="m 220,282.36218 c 1,3 -1,2.48477 -4,3.49493 -2.6157,0.88075 -6,1.26507 -6,-1.49493 0,-2.76 2.24,-5 5,-5 2.76,0 4,0 5,3 z"
+           id="path3188"
+           sodipodi:nodetypes="csssc"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         inkscape:export-ydpi="555.2121"
+         inkscape:export-xdpi="555.2121"
+         inkscape:export-filename="C:\Documents and Settings\JCARTIER\Bureau\path3856.png"
+         transform="translate(-23.831543,-273.7857)"
+         id="g8821">
+        <path
+           sodipodi:type="arc"
+           style="fill:#d08b4e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path8823"
+           sodipodi:cx="214"
+           sodipodi:cy="276.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 218,276.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z" />
+        <path
+           sodipodi:nodetypes="csssc"
+           id="path8825"
+           d="m 216,274.36218 c -1,1 -0.94974,0.0259 -2,2 -1.59609,3 -4,2.208 -4,0 0,-2.208 1.792,-4 4,-4 2.208,0 2,-0.208 2,2 z"
+           style="fill:#683910;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="csssc"
+           id="path8827"
+           d="m 220,282.36218 c 1,3 -1,2.48477 -4,3.49493 -2.6157,0.88075 -6,1.26507 -6,-1.49493 0,-2.76 2.24,-5 5,-5 2.76,0 4,0 5,3 z"
+           style="fill:#000084;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           transform="translate(-1,1)"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         inkscape:export-ydpi="555.2121"
+         inkscape:export-xdpi="555.2121"
+         inkscape:export-filename="C:\Documents and Settings\JCARTIER\Bureau\path3856.png"
+         transform="translate(-28.571443,-273.4315)"
+         id="g3198">
+        <path
+           sodipodi:type="arc"
+           style="fill:#d08b4e;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+           id="path3200"
+           sodipodi:cx="214"
+           sodipodi:cy="276.36218"
+           sodipodi:rx="4"
+           sodipodi:ry="4"
+           d="m 218,276.36218 c 0,2.20914 -1.79086,4 -4,4 -2.20914,0 -4,-1.79086 -4,-4 0,-2.20914 1.79086,-4 4,-4 2.20914,0 4,1.79086 4,4 z" />
+        <path
+           sodipodi:nodetypes="csssc"
+           id="path3202"
+           d="m 216,274.36218 c -1,1 -0.94974,0.0259 -2,2 -1.59609,3 -4,2.208 -4,0 0,-2.208 1.792,-4 4,-4 2.208,0 2,-0.208 2,2 z"
+           style="fill:#683910;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           inkscape:connector-curvature="0" />
+        <path
+           sodipodi:nodetypes="csssc"
+           id="path3204"
+           d="m 220,282.36218 c 1,3 -1,2.48477 -4,3.49493 -2.6157,0.88075 -6,1.26507 -6,-1.49493 0,-2.76 2.24,-5 5,-5 2.76,0 4,0 5,3 z"
+           style="fill:#000084;fill-opacity:1;stroke:#000000;stroke-width:1;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1"
+           transform="translate(-1,1)"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m 207.70734,54.071013 c -2.19671,12.679468 0.51437,21.129566 0.51437,21.129566"
+       id="path5589-2-0-0"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-ydpi="250.20767" />
+    <g
+       transform="translate(-111.38002,-201.89242)"
+       inkscape:export-ydpi="250.20767"
+       inkscape:export-xdpi="250.20767"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       id="g7364">
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:#ff8800;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 395,347.36218 c 1,1 9.50893,-4 10,-5 0.55126,-1 -4,-7.44643 -5,-7 -1,0.50565 -5.49107,11 -5,12 z"
+         id="path7366"
+         sodipodi:nodetypes="cccc" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:0.90453374px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 400.01392,338.36218 0.53381,3 -0.0874,-3"
+         id="path7368"
+         sodipodi:nodetypes="ccc" />
+      <path
+         inkscape:connector-curvature="0"
+         style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 400.5,342.36218 0,1"
+         id="path7370" />
+    </g>
+    <g
+       id="g7206"
+       transform="matrix(0.65625,0,0,0.65625,60.193578,-84.886615)"
+       style="stroke:#000000;stroke-width:1.52380955;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250">
+      <path
+         transform="translate(18,0)"
+         d="m 225.51656,264.86218 c 0,4.14214 -3.4735,7.5 -7.75827,7.5 -4.28478,0 -7.75828,-3.35786 -7.75828,-7.5 0,-4.14213 3.4735,-7.5 7.75828,-7.5 4.28477,0 7.75827,3.35787 7.75827,7.5 z"
+         sodipodi:ry="7.5"
+         sodipodi:rx="7.7582779"
+         sodipodi:cy="264.86218"
+         sodipodi:cx="217.75829"
+         id="path7208"
+         style="fill:#000084;fill-opacity:1;stroke:#000000;stroke-width:1.52380955;stroke-linecap:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+         sodipodi:type="arc" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7210"
+         d="m 235,257.36218 0,3 -1,-1 -1,1 2,4.45982 4,0.54018 -2,-2.56048 2,-1.43952 0,-2 2,3 2,0"
+         style="fill:#039000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.52380955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7213"
+         d="m 230,260.36218 2,2 -2.49931,0 -0.50069,-1"
+         style="fill:#039000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.52380955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7215"
+         d="m 230,269.36218 2,-2 -1.48916,-1.40375 0.48916,-1.59625 2,0 2,3 -0.57482,2 -0.42518,1 2,2"
+         style="fill:#039000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.52380955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7217"
+         d="m 239.47595,271.36218 0.52405,-2 1,-1 0,-1 0.49625,-1.40375 -0.49625,-1.59625 1,0 1,4"
+         style="fill:#039000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:1.52380955;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+       x="222.46597"
+       y="101.1926"
+       id="text8027"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250"><tspan
+         sodipodi:role="line"
+         id="tspan8029"
+         x="222.46597"
+         y="101.1926">reverse-proxy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:end;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:end;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+       x="188.68611"
+       y="111.61467"
+       id="text8027-1"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250"><tspan
+         sodipodi:role="line"
+         id="tspan8029-5"
+         x="188.68611"
+         y="111.61467">static</tspan><tspan
+         sodipodi:role="line"
+         x="188.68611"
+         y="119.11467"
+         id="tspan8052">files</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Monospace;-inkscape-font-specification:Monospace"
+       x="190.02432"
+       y="65.994217"
+       id="text8027-5"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250"><tspan
+         sodipodi:role="line"
+         id="tspan8029-55"
+         x="190.02432"
+         y="65.994217">HTTP</tspan></text>
+    <g
+       id="g7241"
+       transform="translate(-10.717072,-172.4638)"
+       inkscape:export-filename="/home/laurent/Devel/websites/www.deltalima.net/src.git/static/wsgi-nginx-gunicorn-supervisor2.png"
+       inkscape:export-xdpi="250"
+       inkscape:export-ydpi="250">
+      <path
+         inkscape:connector-curvature="0"
+         id="path7243"
+         d="m 220,297.5451 5.12195,2.56097 0,-5.12195 -5.12195,-2.56097 0,5.12195 z"
+         style="fill:#eee6d2;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7245"
+         d="m 225.12195,300.10607 5.12195,-2.56097 0,-5.12195 -5.12195,2.56097 0,5.12195 z"
+         style="fill:url(#radialGradient7255);fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7247"
+         d="m 220,292.42315 5.12195,-2.56098 5.12195,2.56098 -5.12195,2.56097 L 220,292.42315 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7249"
+         d="m 220,292.42315 3.07317,0 4.60975,-2.04878 -2.56097,-0.5122 L 220,292.42315 z"
+         style="fill:#eee6d2;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="ccccc"
+         id="path7251"
+         d="m 225.12195,294.98412 -1.53659,-3.07317 5.12195,-2.56097 1.53659,3.07317 -5.12195,2.56097 z"
+         style="fill:#eee6d2;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path7253"
+         d="m 220,297.5451 5.12195,2.56097 5.12195,-2.56097 0,-5.12195 -1.53659,-3.07317 -1.80183,1.02439 -1.78353,-0.5122 -5.12195,2.56098 0,5.12195 z"
+         style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+  </g>
+</svg>
