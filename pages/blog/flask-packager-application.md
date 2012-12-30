@@ -21,9 +21,8 @@ Je ne vous apprends rien en vous disant que l'adoption d'une application se fait
 
 <!-- BODY -->
 
-Les bibliothèques utilisées par Flask et Flask lui-même sont packagés en utilisant distribute. Ce qui nous permet de les installer très facilement depuis le [cheeseshop](http://pypi.python.org) avec une simple commande :
+Les bibliothèques utilisées par Flask et Flask lui-même sont packagés en utilisant distribute. Ce qui nous permet de les installer facilement depuis le [cheeseshop](http://pypi.python.org) avec une unique commande :
 
-    ::bash
     $ pip install Flask
 
 *pip*, via les informations du package Flask, va télécharger et installer automatiquement Flask ainsi que toutes ses dépendances.
@@ -86,7 +85,6 @@ Le contenu du fichier MANIFEST.in est utilisé uniquement si include_package_dat
 
 Bon, tout est en place pour créer notre premier package. Pour lancer la génération du package, on utilise le script setup.py :
 
-    :::bash
     $ python setup.py sdist
 
 Cette commande va créer une archive *FlaskTODO-0.1.tar.gz* dans le dossier *dist/*. Cette archive peut maintenant être partagée avec le monde entier et l'installation de notre application se fera en quelques commandes.
@@ -96,7 +94,6 @@ Cette commande va créer une archive *FlaskTODO-0.1.tar.gz* dans le dossier *dis
 
 Pour installer le package, rien de plus simple : on va créer un nouveau virtalenv puis installer l'application FlaskTODO.
 
-    :::bash
     $ virtualenv env
     $ . ./env/bin/activate
     (env)$ wget http://www.deltalima.net/static/FlaskTODO-0.1.tar.gz
@@ -108,7 +105,6 @@ Et voilà, en six commandes j'ai pu installer mon application ainsi que toutes s
 
 Si tout s'est bien passé, on peut maintenant démarrer FlaskTODO :
 
-    :::bash
     (env)$ python
     >>> from flasktodo import app
     >>> app.run()
