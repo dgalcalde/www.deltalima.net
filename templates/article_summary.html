@@ -1,6 +1,6 @@
 <a name="{{ article.path }}"></a>
 <section>
- <a href="{{ url_for('page', path=article.path) }}"><h3>{{ article.title }}</h3></a>
+ <a href="{{ url_for('page', path=article.path) }}"><h2>{{ article.title }}</h2></a>
 
  <div class="row">
 
@@ -22,7 +22,7 @@
    {% else %}
     {{ article.html|summarize|safe }}
    {% endif %}
-   <p class="readmore"><a href="{{ url_for('page', path=article.path) }}">Lire la suite...</a></p>
+   <p class="readmore"><a class="btn btn-primary" href="{{ url_for('page', path=article.path) }}">Lire la suite...</a></p>
   </div>
 
  </div> <!-- row -->
