@@ -23,7 +23,7 @@ links:
 
 Nous sommes arrivés au quatrième article de [la série dédiée au framework Flask](/tag/Flask/), et pour changer on va mettre de côté nos talents de développeur pour prendre le rôle de l'admin sys et s'intéresser au déploiement d'une application [WSGI](http://en.wikipedia.org/wiki/Web_Server_Gateway_Interface). Bien que les précédents articles soient dédiés à Flask, celui-ci sera plus généraliste et sera valable pour toutes vos applications WSGI. Alors si vous n'utilisez pas Flask, ne partez pas ! La suite pourrait vous intéresser.
 
-Comme d'habitude, et pour bien commencer, on va déjà expliquer un peu ce qu'on cherche à faire. Et bien le but est simple : on doit déployer notre application WSGI sur un serveur. Et pour cela, on va utiliser tout une suite d'outils ayant chacun son propre rôle à jouer : Nginx, Gunicorn et supervisor.
+Comme d'habitude, et pour bien commencer, on va déjà expliquer un peu ce qu'on cherche à faire. Et bien le but est simple : on doit déployer notre application WSGI sur un serveur. Et pour cela, on va utiliser toute une suite d'outils ayant chacun son propre rôle à jouer : Nginx, Gunicorn et supervisor.
 
 <span class="center">
 ![Schéma avec Nginx, Gunicorn et supervisor](/static/img/wsgi-nginx-gunicorn-supervisor.png "Déployer une application WSGI avec Nginx, Gunicorn et supervisor")
@@ -67,10 +67,10 @@ Une fois installé, on va modifier le fichier */etc/nginx/sites-available/defaul
 
 Les seuls points à noter de cette configuration sont les deux sections *location* :
 
-- Le premier permet de servir les fichiers statiques directement depuis Nginx, ça évite de passer par Python pour une tâche que Nginx accompli à merveilles. Dans le cas de FlaskTODO, c'est inutile car il n'y a aucun fichier statique, mais je le laisse à titre d'exemple (et ça pourra servir plus tard). L'ordre est important, ce 'location' doit se trouver *avant* le suivant.
-- Le second 'location' définit un reverse-proxy vers Gunicorn. Quand une requête commence par /flasktodo (autre que /flasktodo/static), celle-ci est renvoyée vers le serveur définit par la directive *proxy_pass* (et donc vers http://127.0.0.1:8004 qui n'est autre que Gunicorn).
+- Le premier permet de servir les fichiers statiques directement depuis Nginx, ça évite de passer par Python pour une tâche que Nginx accomplit à merveille. Dans le cas de FlaskTODO, c'est inutile car il n'y a aucun fichier statique, mais je le laisse à titre d'exemple (et ça pourra servir plus tard). L'ordre est important, ce 'location' doit se trouver *avant* le suivant.
+- Le second 'location' définit un reverse-proxy vers Gunicorn. Quand une requête commence par /flasktodo (autre que /flasktodo/static), celle-ci est renvoyée vers le serveur défini par la directive *proxy_pass* (et donc vers http://127.0.0.1:8004 qui n'est autre que Gunicorn).
 
-Vous noterez qu'on souhaite déployer l'appli sur une URI différente de la racine, elle doit être accessible sur */flasktodo*. Pour ne pas avoir à modifier tous les liens de l'appli, on définit le header SCRIPT_NAME pour indiquer à Gunicorn de ne pas tenir compte de */flasktodo*. Ainsi, une requête */flasktodo/foobar* sur Nginx sera transformée en */foobar* sur Gunicorn. Si vous déployée votre appli à la racine, vous pouvez supprimer cette ligne (pensez également à modifier les URI des directives 'location').
+Vous noterez qu'on souhaite déployer l'appli sur une URI différente de la racine, elle doit être accessible sur */flasktodo*. Pour ne pas avoir à modifier tous les liens de l'appli, on définit le header SCRIPT_NAME pour indiquer à Gunicorn de ne pas tenir compte de */flasktodo*. Ainsi, une requête */flasktodo/foobar* sur Nginx sera transformée en */foobar* sur Gunicorn. Si vous déployez votre appli à la racine, vous pouvez supprimer cette ligne (pensez également à modifier les URI des directives 'location').
 
 
 Nginx est prêt, il ne reste plus qu'à le redémarrer :
@@ -83,7 +83,7 @@ Nginx est prêt, il ne reste plus qu'à le redémarrer :
 
 Gunicorn est un serveur HTTP / WSGI développé en Python. Son rôle sera d'héberger notre application WSGI et ainsi de faire l'interface entre Nginx et notre appli (dans le monde Java, il serait l'équivalent d'un Tomcat faisant tourner une application J2EE).
 
-Pour installer Gunicorn, vous pouvez soit l'installer depuis les dépôts Debian, soit installer depuis [PyPI](http://pypi.python.org/pypi/gunicorn/) directement dans le virtualenv. J'ai choisi la second option pour deux raisons : la version disponible dans Debian commence à dater, et il est très facile de l'installer dans le virtualenv (Gunicorn étant en pur Python, il n'y a aucune autre dépendance à compiler/installer).
+Pour installer Gunicorn, vous pouvez soit l'installer depuis les dépôts Debian, soit l'installer depuis [PyPI](http://pypi.python.org/pypi/gunicorn/) directement dans le virtualenv. J'ai choisi la seconde option pour deux raisons : la version disponible dans Debian commence à dater, et il est très facile de l'installer dans le virtualenv (Gunicorn étant en pur Python, il n'y a aucune autre dépendance à compiler/installer).
 
     ::console
     # . /opt/flasktodo/env/bin/activate
@@ -102,7 +102,7 @@ Comme pour Nginx, on va l'installer depuis les dépôts Debian :
     ::console
     # apt-get install supervisor
 
-C'est installé, on passe à la configuration. Là, toujours rien de compliquer, on va créer un fichier dans */etc/supervisor/conf.d/* :
+C'est installé, on passe à la configuration. Là, toujours rien de compliqué, on va créer un fichier dans */etc/supervisor/conf.d/* :
 
     ::ini
     [program:flasktodo]
@@ -116,10 +116,10 @@ C'est installé, on passe à la configuration. Là, toujours rien de compliquer,
     stderr_logfile=/var/log/supervisor/%(program_name)s_stderr.log
 
 
-La plupart des options sont une fois de plus suffisamment explicites. Je vais juste revenir sur deux d'entres elles :
+La plupart des options sont une fois de plus suffisamment explicites. Je vais juste revenir sur deux d'entre elles :
 
-- *command* : C'est ici qu'on va définir la commande pour lancer Gunicorn depuis le virtualenv. On retrouve également les options de Gunicorn dont '--bind=127.0.0.1:8004' qui devrait vous rappelez quelque chose (si non, retournez voir la configuration de Nginx).
-- *environment* : Permet de définir les variables d'environnements du processus Gunicorn. On définit ici la variable FLASKTODO_CONFIG avec le chemin vers le fichier /opt/flasktodo/config.py qui sera utilisé au démarrage de FlaskTODO pour charger sa configuration. C'est spécifique à cette application, alors ne recopiez pas bêtement cette ligne vu qu'il y a de fortes chances que ce soit différent dans votre cas.
+- *command* : C'est ici qu'on va définir la commande pour lancer Gunicorn depuis le virtualenv. On retrouve également les options de Gunicorn dont '--bind=127.0.0.1:8004' qui devrait vous rappeler quelque chose (si non, retournez voir la configuration de Nginx).
+- *environment* : Permet de définir les variables d'environnement du processus Gunicorn. On définit ici la variable FLASKTODO_CONFIG avec le chemin vers le fichier /opt/flasktodo/config.py qui sera utilisé au démarrage de FlaskTODO pour charger sa configuration. C'est spécifique à cette application, alors ne recopiez pas bêtement cette ligne vu qu'il y a de fortes chances que ce soit différent dans votre cas.
 
 Tout est prêt, on recharge la configuration de supervisor :
 
@@ -128,7 +128,7 @@ Tout est prêt, on recharge la configuration de supervisor :
     flasktodo: added process group
 
 
-Supervisor connait maintenant notre programme et le démarré automatiquement (autostart=true). On vérifie que tout est bien démarré :
+Supervisor connait maintenant notre programme et le démarre automatiquement (autostart=true). On vérifie que tout est bien démarré :
 
     ::console
     # supervisorctl status
