@@ -1,7 +1,8 @@
 title: POM Dashboard
 layout: projet
-published_date: 2012-08-01
+published_date: 2012-08-14
 tags:
+- projets
 - php
 - jquery
 - json
