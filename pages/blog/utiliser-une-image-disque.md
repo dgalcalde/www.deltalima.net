@@ -6,7 +6,7 @@ tags:
 
 
 
-Le titre n'étant pas très parlant, et comme je ne trouvais rien de mieux sans faire une longue tirade, on va tout de suite définir de quoi nous allons parler. Une image disque est tout simplement une copie d'un disque (ça peut être un disque dur, ou un DVD, ou ce que vous voulais) dans un fichier. Nous allons voir dans cet article ce qu'il est possible de faire avec une image disque, et surtout comment le faire.
+Le titre n'étant pas très parlant, et comme je ne trouvais rien de mieux sans faire une longue tirade, on va tout de suite définir de quoi nous allons parler. Une image disque est tout simplement une copie d'un disque (ça peut être un disque dur, ou un DVD, ou ce que vous voulez) dans un fichier. Nous allons voir dans cet article ce qu'il est possible de faire avec une image disque, et surtout comment le faire.
 
 ### À quoi ça sert ?
 
@@ -14,7 +14,7 @@ Il existe beaucoup de cas d'utilisation d'une image disque, il faut voir une ima
 
 Il existe toutefois des utilisations courantes des images disques :
 
-- un disque dur pour une machine virtuel
+- un disque dur pour une machine virtuelle
 - sauvegarder le contenu d'un disque dur pour archivage
 - échanger le contenu d'un disque dur
 
@@ -47,16 +47,16 @@ Encore mieux, si votre système de fichiers gère les [sparse files](http://en.w
     0+0 records out
     0 bytes (0 B) copied, 4,4632e-05 s, 0,0 kB/s
 
-Si, comme moi, vous trouvez la syntaxe de `dd` pas forcément très clair, il existe `truncate` qui fait exactement la même chose mais avec une syntaxe humainement compréhensible.
+Si, comme moi, vous trouvez la syntaxe de `dd` pas forcément très claire, il existe `truncate` qui fait exactement la même chose mais avec une syntaxe humainement compréhensible.
 
     # c'est plus simple non ?
     $ truncate -s 10G image_disque.img
 
-Et voilà, nous avons l'équivalent d'un disque dur de 10Go dans le fichier `image_disque.img`. Et que fait-on avec un disque dur ? On crée des partition.
+Et voilà, nous avons l'équivalent d'un disque dur de 10Go dans le fichier `image_disque.img`. Et que fait-on avec un disque dur ? On crée des partitions.
 
 ### Partitionner une image disque
 
-Ça va simple et rapide : on utilise les mêmes outils que pour un disque dur classique.
+Ça va être simple et rapide : on utilise les mêmes outils que pour un disque dur classique.
 
     ::shell
     # exemple d'utilisation avec fdisk
@@ -113,7 +113,7 @@ Première chose, pour monter une partition il faut que le noyau la connaisse. En
        8        2  487873536 sda2
       11        0    1048575 sr0
 
-Pour se faire, on va utiliser la commande `partx` qui indique au noyau de lire la table des partitions présente sur un device et d'ajouter les partitions au niveau du noyau. Et comme on a de la chance, `partx` permet de lire soit un device, soit une image disque (chance !).
+Pour se faire, on va utiliser la commande `partx` qui indique au noyau de lire la table des partitions présentent sur un device et d'ajouter les partitions au niveau du noyau. Et comme on a de la chance, `partx` permet de lire soit un device, soit une image disque (chance !).
 
     ::shell
     # on liste les partitions présentes sur notre image disque
@@ -121,7 +121,7 @@ Pour se faire, on va utiliser la commande `partx` qui indique au noyau de lire l
     # 1:      2048- 12584959 ( 12582912 sectors,   6442 MB)
     # 2:  12584960- 20971519 (  8386560 sectors,   4293 MB)
 
-Et voilà nos deux partitions créés avec fdisk, il ne reste plus qu'à les ajouter au noyau.
+Et voilà nos deux partitions créées avec fdisk, il ne reste plus qu'à les ajouter au noyau.
 
     ::shell
     # ajoute nos deux partitions
@@ -201,7 +201,7 @@ Il est possible de copier notre image disque sur un device externe (un disque du
     #   2. ne vous trompez pas de device pour la destination `of=/dev/sdX`
     $ dd if=image_disque.img of=/dev/sdX bs=4k ; sync
 
-Une fois la copie terminée, débranchez puis rebranchez la clé et vous y trouverez les deux partitions et leurs contenus.
+Une fois la copie terminée, débranchez puis rebranchez la clé et vous y trouverez les deux partitions et leur contenu.
 
 ### Astuce 2
 
