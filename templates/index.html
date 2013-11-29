@@ -3,15 +3,13 @@
 {% block content %}
   {{ page }}
 
+  <h1>Derniers articles</h1>
 
-<h1>Derniers articles</h1>
-
-<div itemscope itemtype="http://schema.org/Blog" class="last-articles articles">
-  {% for article in articles[:5] %}
-    {% include 'article_summary.html' %}
-  {% else %}
-    <p>Pas encore de post dans ce blog :(</p>
-  {% endfor %}
-</div>
-
+  <div itemscope itemtype="http://schema.org/Blog" class="last-articles articles">
+    {% for article in articles[:5] %}
+      {% include 'article_summary.html' %}
+    {% else %}
+      <p>Pas encore de post dans ce blog :(</p>
+    {% endfor %}
+  </div>
 {% endblock content %}

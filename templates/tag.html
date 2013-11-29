@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 {% block head %}
-    {{ super() }}
-    <link href="{{ url_for('feed_tag', tag=tag) }}" rel="alternate" title="deltalima.net - Recent Articles for tag '{{ tag }}'" type="application/atom+xml">
+  {{ super() }}
+  <link href="{{ url_for('feed_tag', tag=tag) }}" rel="alternate" title="deltalima.net - Recent Articles for tag '{{ tag }}'" type="application/atom+xml">
 {% endblock %}
 
 {% block content %}
+  <p>Liste des articles de la catégorie &laquo; <strong>{{ tag }}</strong> &raquo;.</p>
 
-<p>Liste des articles de la catégorie &laquo; <strong>{{ tag }}</strong> &raquo;.</p>
-
-{% for article in articles %}
- {% include 'article_summary.html' %}
-{% endfor %}
-
+  {% for article in articles %}
+    {% include 'article_summary.html' %}
+  {% endfor %}
 {% endblock content %}
