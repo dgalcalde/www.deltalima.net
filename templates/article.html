@@ -1,57 +1,32 @@
-<section id="{{ article.path }}">
- <a href="{{ url_for('page', path=article.path) }}"><h2>{{ article.title }}</h2></a>
+<article id="{{ article.path }}" class="article" itemscope itemtype="http://schema.org/BlogPosting">
+  <link href="{{ url_for('page', path=article.path) }}" itemprop="url">
 
- <div class="row">
+  <header class="article-header">
+    <h2 itemprop="name">{{ article.title }}</h2>
+  </header>
 
-  <div class="span2">
-   <p class="published_date"><i class="icon-calendar"></i> {{ article.published_date|dateformat('%B %Y') }}</p>
-
-   {% if article.tags %}
-    <p class="tags"><i class="icon-tags"></i>
-    {% for tag in article.tags|sort %}
-      <a href="{{ url_for('show_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
-    {% endfor %}
+  <aside class="article-meta">
+    <p>
+      <span class="article-author" itemscope itemtype="http://schema.org/Person" itemprop="author">
+        <span itemprop="name">Laurent Meunier</span>
+      </span>
+      posté le
+      <time class="article-date" itemprop="datePublished" datetime="{{ article.published_date|dateformat('%Y-%m-%d') }}">
+        {{ article.published_date|dateformat('%d %B %Y') }}
+      </time>
+      {% if article.tags %}
+        , dans {% if article.tags|length > 1 %}les catégories{% else %}la catégorie{% endif %}
+        {% for tag in article.tags|sort %}
+          {% if loop.last and not loop.first %} et {% endif %}
+          <a href="{{ url_for('show_tag', tag=tag) }}" itemprop="genre">{{ tag }}</a>{% if not loop.last %},{% endif %}
+        {% endfor %}
+      {% endif %}
     </p>
-   {% endif %}
-  </div>
+  </aside>
 
-  <div class="span6">
+  <section class="article-content" itemprop="articleBody">
     {{ article }}
-  </div>
+  </section>
 
-  <div class="span4">
-   {% if article.links %}
-   <h4>Liens</h4>
-   <ul class="links">
-    {% for link in article.links %}
-    <li><a href="{{ link.href }}" alt="Link to {{ name }}">
-       {{ link.name }}
-     </a></li>
-    {% endfor %}
-   </ul>
-   {% endif %}
-   {% if article.attachments %}
-   <h4>Fichiers</h4>
-   <ul class="attachments">
-    {% for file in article.attachments %}
-    <li><a href="{{ url_for('static', filename=file) }}" alt="Download file {{ file }}">
-       {{ file }}
-     </a></li>
-    {% endfor %}
-   </ul>
-   {% endif %}
-   {% if article.screenshots %}
-   <h4>Screenshots</h4>
-   <p class="screenshots">
-    {% for screenshot in article.screenshots %}
-     <a href="{{ url_for('static', filename='img/' + screenshot) }}" alt="Screenshot {{ loop.index }}">
-      <img src="{{ url_for('static', filename='img/thumb-' + screenshot) }}">
-     </a>
-    {% endfor %}
-   </p>
-   {% endif %}
-  </div>
-
- </div> <!-- row -->
-
-</section>
+  <hr>
+</article>

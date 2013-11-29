@@ -2,55 +2,59 @@
 <html lang="fr">
 <head>
 {% block head %}
-    <meta charset="utf-8">
-    <title>{% if page.title %}{{ page.title }} - {% endif %}deltalima.net</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ url_for('pygments_css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
-    <link href="{{ url_for('feed_all') }}" rel="alternate" title="deltalima.net - Recent Articles" type="application/atom+xml">
+  <meta charset="utf-8">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}deltalima.net</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if page.description %}<meta name="description" content"{{ page.description }}">{% endif %}
+  <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet">
+  <link href="{{ url_for('pygments_css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
+  <link href="{{ url_for('feed_all') }}" rel="alternate" title="deltalima.net - Recent Articles" type="application/atom+xml">
 {% endblock %}
 </head>
 <body>
 
-<header>
- <div class="container">
-  <h1><a href="{{ url_for('page') }}" title="deltalima.net"><img src="{{ url_for('static', filename='img/logo.png') }}" alt="Logo deltalima.net" title="deltalima.net"></a></h1>
- </div>
-</header>
-
-<nav>
- <div class="container">
-  <div class="row">
-   <div class="span2">
-    <a id="nav-laurent" {% if request.path == '/' %}class="active"{% endif %} href="{{ url_for('page') }}" title="Laurent">Laurent</a>
-   </div>
-   <div class="span2">
-    <a id="nav-blog" {% if request.path.startswith('/blog/') %}class="active"{% endif %} href="{{ url_for('page', path='blog') }}" title="Blog">Blog</a>
-   </div>
-   <div class="span2">
-    <a id="nav-code" href="http://git.deltalima.net" title="Code">Code</a>
-   </div>
-   <div class="span2">
-    <a id="nav-contact" href="mailto:laurent@deltalima.net" title="Contact">Contact</a>
-   </div>
+<div class="container">
+  <div class="sidebar">
+    <header itemscope itemtype="http://schema.org/Person">
+      <a href="{{ url_for('page') }}">
+        <img src="//gravatar.com/avatar/c779c9ca8c1852c7cda7d32b2d2a2ff5?s=88" alt="Profile picture" class="photo-me" itemprop="image">
+      </a>
+      <h1 class="site-title">
+        <a href="{{ url_for('page') }}" itemprop="url">
+          <span itemprop="name">Laurent Meunier</span>
+        </a>
+      </h1>
+      <p class="site-subtitle">
+        <span itemprop="jobTitle">Freelance</span>.
+        <span itemprop="jobTitle">Web Developer</span>.
+        <span itemprop="jobTitle">System Administrator</span>.
+      </p>
+      <p class="social-links">
+        <a href="{{ url_for('feed_all') }}" title="Atom Feed" class="icon-social icon-feed">Atom Feed</a>
+        <a href="//github.com/lmeunier" title="GitHub Profile" class="icon-social icon-github">GitHub Profile</a>
+      </p>
+    </header>
+    <nav class="nav-menu">
+      <ul>
+        <li><a href="{{ url_for('page', path='blog') }}" title="Blog">Blog</a></li>
+        <li><a href="//git.deltalima.net" title="Code">Code</a></li>
+        <li><a href="mailto:laurent@deltalima.net" title="Contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
- </div>
-</nav>
 
-<div class="content">
- <div class="container">
-{% block content %}
+  <div class="content">
+  {% block content %}
     <p>Default content to be displayed</p>
-{% endblock content %}
- </div>
-</div>
+  {% endblock %}
+  </div>
 
-<footer>
- <div class="container">
-  <p>&copy; 2012 deltalima.net SARL - <a href="{{ url_for('page', path='mentions-legales') }}">Mentions légales</a></p>
- </div>
-</footer>
+  <footer>
+    <p>&copy; 2012-{{ now.year }} Laurent Meunier</p>
+  </footer>
+</div>
 
 </body>
 </html>

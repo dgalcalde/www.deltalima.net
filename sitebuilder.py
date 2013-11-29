@@ -3,6 +3,7 @@
 
 import os, sys, locale
 
+from datetime import datetime
 from flask import Flask, render_template, url_for, make_response, request
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
@@ -49,6 +50,9 @@ def summarize(html):
         return unicode(BeautifulSoup(html))
     else:
         return unicode(BeautifulSoup(html).p)
+
+# add `datetime.now()` as a global Jinja2 variable making it always available in a template
+app.jinja_env.globals['now'] = datetime.now()
 
 #
 # Helpers

@@ -1,29 +1,31 @@
-<section id="{{ article.path }}">
- <a href="{{ url_for('page', path=article.path) }}"><h2>{{ article.title }}</h2></a>
+<article id="{{ article.path }}" class="article" itemscope itemtype="http://schema.org/BlogPosting">
+  <link href="{{ url_for('page', path=article.path) }}" itemprop="url">
 
- <div class="row">
+  <header class="article-header">
+    <h2><a href="{{ url_for('page', path=article.path) }}">
+      <span itemprop="name">{{ article.title }}</span>
+    </a></h2>
+  </header>
 
-  <div class="span2">
-   <p class="published_date"><i class="icon-calendar"></i> {{ article.published_date|dateformat('%B %Y') }}</p>
+  <aside class="article-meta">
+    <time datetime="{{ article.published_date|dateformat('%Y-%m-%d') }}" itemprop="datePublished">
+      {{ article.published_date|dateformat('%Y-%m-%d') }}
+    </time>
+    {% if article.tags %}
+      &dash;
+      {% for tag in article.tags|sort %}
+        <a href="{{ url_for('show_tag', tag=tag) }}" itemprop="genre">{{ tag }}</a>{% if not loop.last %},{% endif %}
+      {% endfor %}
+    {% endif %}
+  </aside>
 
-   {% if article.tags %}
-    <p class="tags"><i class="icon-tags"></i>
-    {% for tag in article.tags|sort %}
-      <a href="{{ url_for('show_tag', tag=tag) }}">{{ tag }}</a>{% if not loop.last %},{% endif %}
-    {% endfor %}
-    </p>
-   {% endif %}
-  </div>
-
-  <div class="span6">
+  <section class="article-summary" itemprop="description">
    {% if article.summary %}
     {{ article.summary }}
    {% else %}
     {{ article.html|summarize|safe }}
    {% endif %}
-   <p class="readmore"><a class="btn btn-primary" href="{{ url_for('page', path=article.path) }}">Lire la suite...</a></p>
-  </div>
+  </section>
 
- </div> <!-- row -->
-
-</section>
+  <hr>
+</article>

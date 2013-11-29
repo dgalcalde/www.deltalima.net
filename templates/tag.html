@@ -7,7 +7,7 @@
 
 {% block content %}
 
-<p>Liste des articles avec le tag &laquo; <b>{{ tag }}</b> &raquo;.</p>
+<p>Liste des articles de la catégorie &laquo; <strong>{{ tag }}</strong> &raquo;.</p>
 
 {% for article in articles %}
  {% include 'article_summary.html' %}

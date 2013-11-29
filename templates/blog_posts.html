@@ -2,10 +2,12 @@
 
 {% block content %}
 
-{% for article in articles %}
+<div itemscope itemtype="http://schema.org/Blog" class="articles">
+  {% for article in articles %}
     {% include 'article_summary.html' %}
-{% else %}
+  {% else %}
     <p>Pas encore de post dans ce blog :(</p>
-{% endfor %}
+  {% endfor %}
+</div>
 
 {% endblock content %}
