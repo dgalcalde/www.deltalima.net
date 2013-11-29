@@ -1,1 +1,1 @@
-Sitemap: http://www.deltalima.net/sitemap.xml
+Sitemap: https://www.deltalima.net/sitemap.xml

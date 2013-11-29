@@ -16,7 +16,7 @@ locale.setlocale(locale.LC_ALL, ('fr_FR', 'UTF-8'))
 DEBUG = True
 FLATPAGES_AUTO_RELOAD = DEBUG
 FLATPAGES_EXTENSION = '.md'
-FREEZER_BASE_URL = 'http://www.deltalima.net'
+FREEZER_BASE_URL = 'https://www.deltalima.net'
 FREEZER_DESTINATION = 'build'
 
 if 'demo' in sys.argv:
