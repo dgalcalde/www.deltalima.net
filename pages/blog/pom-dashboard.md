@@ -1,5 +1,5 @@
 title: POM Dashboard
-layout: projet
+layout: blog_post
 published_date: 2012-08-14
 tags:
 - projets
