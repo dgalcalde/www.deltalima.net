@@ -19,11 +19,6 @@ FLATPAGES_EXTENSION = '.md'
 FREEZER_BASE_URL = 'https://www.deltalima.net'
 FREEZER_DESTINATION = 'build'
 
-if 'demo' in sys.argv:
-    FREEZER_BASE_URL = 'http://demo.deltalima.net/www'
-    FREEZER_DESTINATION = 'build/www'
-
-
 app = Flask(__name__)
 app.config.from_object(__name__)
 pages = FlatPages(app)
