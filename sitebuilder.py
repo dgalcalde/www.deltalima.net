@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os, sys, locale
-
+import os
+import sys
+import locale
 from datetime import datetime
 from flask import Flask, render_template, url_for, make_response, request
 from flask_flatpages import FlatPages, pygments_style_defs
@@ -38,6 +39,7 @@ def dateformat(value, format=u'%H:%M / %d-%m-%Y'):
         return u''
     return unicode(value.strftime(format).decode('utf8'))
 
+
 @app.template_filter()
 def summarize(html):
     if '<!-- BODY -->' in html:
@@ -48,6 +50,7 @@ def summarize(html):
 
 # add `datetime.now()` as a global Jinja2 variable making it always available in a template
 app.jinja_env.globals['now'] = datetime.now()
+
 
 #
 # Helpers
@@ -69,12 +72,14 @@ def generate_feed(title, articles):
                  updated=article.meta['published_date'])
     return feed.get_response()
 
+
 #
 # Routes
 #
 @app.route('/pygments.css')
 def pygments_css():
     return pygments_style_defs(), 200, {'Content-Type': 'text/css'}
+
 
 @app.route('/sitemap.xml')
 def sitemap():
@@ -100,17 +105,20 @@ def sitemap():
     response.headers['Content-type'] = 'text/xml; charset=utf-8'
     return response
 
+
 @app.route('/feed/all.atom')
 def feed_all():
     title = 'deltalima.net - Recent Articles'
     articles = (p for p in pages if 'published_date' in p.meta)
     return generate_feed(title, articles)
 
+
 @app.route('/feed/tag/<string:tag>.atom')
 def feed_tag(tag):
     title = "deltalima.net - Recent Articles for tag '" + tag + "'"
     articles = (p for p in pages if 'published_date' in p.meta and tag in p.meta.get('tags', []))
     return generate_feed(title, articles)
+
 
 @app.route('/tag/<string:tag>/')
 def show_tag(tag):
@@ -121,6 +129,7 @@ def show_tag(tag):
     }
     return render_template('tag.html', tag=tag, page=page, articles=articles)
 
+
 @app.route('/', defaults={'path': 'index'})
 @app.route('/<path:path>/')
 def page(path):
@@ -130,7 +139,9 @@ def page(path):
     articles = []
     if 'list_pages' in page.meta:
         path = page.meta['list_pages']
-        articles = (p for p in pages if p.path.startswith(path + '/') and 'published_date' in p.meta)
+        articles = (
+            p for p in pages if p.path.startswith(path + '/') and 'published_date' in p.meta
+        )
         articles = sorted(articles, reverse=True, key=lambda p: p.meta['published_date'])
 
     return render_template(layout, page=page, articles=articles)
