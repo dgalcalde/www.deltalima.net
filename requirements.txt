@@ -1,5 +1,5 @@
 Flask
 Flask-FlatPages
 Frozen-Flask
-BeautifulSoup==3.2.1
+BeautifulSoup
 Pygments
