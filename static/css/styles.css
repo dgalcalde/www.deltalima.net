@@ -83,7 +83,6 @@ code {
 }
 .site-subtitle {
   color: #999;
-  ont-size: 0.9em;
   font-style: italic;
   margin-top: 0;
   max-width: 220px;
@@ -228,7 +227,7 @@ footer {
     position: relative;
     margin: 0;
     top: auto;
-    bottom; auto;
+    bottom: auto;
     text-align: center;
   }
   .sidebar:after {
@@ -249,9 +248,6 @@ footer {
   }
   .site-subtitle {
     max-width: none;
-  }
-  .social-links {
-    rgin-bottom: 0;
   }
 
   /* Menu */
