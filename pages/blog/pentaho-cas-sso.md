@@ -56,6 +56,7 @@ Cette petite appli merveilleuse, c'est un simple fichier Java qui se nomme [Inst
 
 Ceci va créer un fichier *jssecacerts* dans le dossier actuel. Il ne reste plus qu'à copier ce fichier dans l'arborescence de votre JDK.
 
+    ::bash
     cp jssecacerts $JAVA_HOME/jre/lib/security/cacerts
 
 Et voilà, ça c'est fait. On peut passer à la suite.

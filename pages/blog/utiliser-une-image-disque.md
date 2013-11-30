@@ -27,7 +27,7 @@ Vu que c'est un fichier comme un autre, n'importe quel outil permettant de crée
 
 Vous connaissez tous la commande `dd`, elle permet d'indiquer le nombre d'octets qui seront copiés vers la destination. En utilisant `/dev/zero` comme source, on peut se créer facilement un fichier rempli de zéros.
 
-    ::shell
+    ::bash
     # création d'un fichier de 10Go
     $ dd if=/dev/zero of=image_disque.img bs=1M count=10240
     10240+0 records in
@@ -40,7 +40,7 @@ Vous connaissez tous la commande `dd`, elle permet d'indiquer le nombre d'octets
 
 Encore mieux, si votre système de fichiers gère les [sparse files](http://en.wikipedia.org/wiki/Sparse_file), la création devient instantanée.
 
-    ::shell
+    ::bash
     # on utilise l'option seek de dd
     $ dd of=image_disque.img bs=10G count=0 seek=1
     0+0 records in
@@ -49,6 +49,7 @@ Encore mieux, si votre système de fichiers gère les [sparse files](http://en.w
 
 Si, comme moi, vous trouvez la syntaxe de `dd` pas forcément très claire, il existe `truncate` qui fait exactement la même chose mais avec une syntaxe humainement compréhensible.
 
+    ::bash
     # c'est plus simple non ?
     $ truncate -s 10G image_disque.img
 
@@ -58,7 +59,7 @@ Et voilà, nous avons l'équivalent d'un disque dur de 10Go dans le fichier `ima
 
 Ça va être simple et rapide : on utilise les mêmes outils que pour un disque dur classique.
 
-    ::shell
+    ::bash
     # exemple d'utilisation avec fdisk
     # - création d'une partition de 6Go
     # - création d'une seconde partition utilisant le reste des 10Go
@@ -104,7 +105,7 @@ Autant les deux premières étapes sont simples et peuvent être réalisées ave
 
 Première chose, pour monter une partition il faut que le noyau la connaisse. En gros, il faut qu'elle apparaisse dans `/proc/partitions`. Pour le moment, elle n'y est pas.
 
-    ::shell
+    ::bash
     $ cat /proc/partitions
     major minor  #blocks  name
 
@@ -115,7 +116,7 @@ Première chose, pour monter une partition il faut que le noyau la connaisse. En
 
 Pour se faire, on va utiliser la commande `partx` qui indique au noyau de lire la table des partitions présentent sur un device et d'ajouter les partitions au niveau du noyau. Et comme on a de la chance, `partx` permet de lire soit un device, soit une image disque (chance !).
 
-    ::shell
+    ::bash
     # on liste les partitions présentes sur notre image disque
     $ partx -l image_disque.img
     # 1:      2048- 12584959 ( 12582912 sectors,   6442 MB)
@@ -123,7 +124,7 @@ Pour se faire, on va utiliser la commande `partx` qui indique au noyau de lire l
 
 Et voilà nos deux partitions créées avec fdisk, il ne reste plus qu'à les ajouter au noyau.
 
-    ::shell
+    ::bash
     # ajoute nos deux partitions
     $ partx -a image_disque.img
 
@@ -141,14 +142,14 @@ Et voilà nos deux partitions créées avec fdisk, il ne reste plus qu'à les aj
 
 Nos deux partitions sont disponibles en tant que `/dev/loop0p1` et `/dev/loop0p2`. Quand `partx` est utilisé sur un fichier classique (notre image disque), il utilise `losetup` pour monter notre image disque en tant que block device dans `/dev` (dans notre cas `/dev/loop0`). Le device `/dev/loop0` est un device particulier qui redirige les I/O vers `image_disque.img`.
 
-    ::shell
+    ::bash
     $ losetup
     NAME       SIZELIMIT OFFSET AUTOCLEAR RO BACK-FILE
     /dev/loop0         0      0         0  0 /home/laurent/image_disque.img
 
 Le noyau est maintenant au courant qu'il y a deux partitions dans notre image disque, mais on ne peut pas encore les monter : les partitions ne sont pas formatées.
 
-    ::shell
+    ::bash
     # NE PAS SE TROMPER DE DEVICE !!!
     $ mkfs.btrfs /dev/loop0p1
 
@@ -157,7 +158,7 @@ Le noyau est maintenant au courant qu'il y a deux partitions dans notre image di
 
 C'est presque fini, il ne reste plus qu'à les monter comme des partitions classiques.
 
-    ::shell
+    ::bash
     # monte les partitions
     $ mkdir /mnt/p1 /mnt/p2
     $ mount /dev/loop0p1 /mnt/p1
@@ -174,7 +175,7 @@ C'est presque fini, il ne reste plus qu'à les monter comme des partitions class
 
 Voilà, vous avez monté vos deux partitions, vous pouvez maintenant y ajouter des fichiers. C'est bien, mais comment faire pour tout supprimer ? Si on supprime directement le fichier `image_disque.img`, le noyau ne risque pas d'aimer ça beaucoup (je vous rappelle que les deux partitions sont toujours montées). Pour ne risquer aucune corruption de données dans l'image disque, on va tout simplement refaire toutes les étapes précédentes, mais dans l'ordre inverse.
 
-    ::shell
+    ::bash
     # on démonter les deux partitions
     $ umount /mnt/p1
     $ umount /mnt/p2
@@ -191,7 +192,7 @@ Et c'est fini. Le fichier `image_disque.img` contient maintenant deux partitions
 
 Il est possible de copier notre image disque sur un device externe (un disque dur ou une clé usb). Si vous avez une clé usb dont la taille est supérieure à la taille de l'image disque, vous pouvez tenter ceci :
 
-    ::shell
+    ::bash
     # démontez TOUTES les partitions de la clé usb
     $ umount blabla...
 
@@ -209,7 +210,7 @@ Si vous vous rendez compte que la taille de l'image disque n'est pas bonne (trop
 
 Par exemple, pour augmenter sa taille :
 
-    ::shell
+    ::bash
     # ajoute 4Go
     $ truncate -s +4G image_disque.img
 

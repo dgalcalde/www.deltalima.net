@@ -38,6 +38,7 @@ Le premier niveau comporte juste deux dossiers. Le premier, nommé *env*, contie
 
 Ce qui correspond aux commandes shell :
 
+    ::bash
     $ mkdir monprojet
     $ cd monprojet
     monprojet/ $ virtualenv env
@@ -49,6 +50,7 @@ Le dossier *env* étant géré par le VirtualEnv, je ne vais pas m'étendre dess
 
 Pour entrer dans le VirtualEnv :
 
+    ::bash
     monprojet/ $ . ./env/bin/activate
     (env) monprojet/ $
 
@@ -56,6 +58,7 @@ Notez bien le "point" juste avant "./env/bin/activate", il ne faut pas l'oublier
 
 Puis on installe Flask (dans le VirtualEnv) :
 
+    ::bash
     (env) monprojet $ pip install Flask
 
 ### L'arborescence des fichiers versionnés
@@ -70,11 +73,13 @@ Pour simplifier la gestion des fichiers Python et le déploiement, je vous recom
 
 Et les commandes shell qui vont bien :
 
+    ::bash
     monprojet/src.git/ $ mkdir monprojet
     monprojet/src.git/ $ touch monprojet/__init__.py
 
 Avec cette arborescence, nous avons un module nommé *monprojet* qu'on peut importer dans un shell Python.
 
+    ::bash
     monprojet/src.git/ $ python
     >>> import monprojet
     >>>
@@ -106,6 +111,7 @@ On peut ensuite créer un script *run-server.py* tout simple pour démarrer l'ap
 
 Une simple commande shell suffit ensuite à lancer l'application :
 
+    ::bash
     (env) src.git $ python run-server.py
      * Running on http://0.0.0.0:5000/
      * Restarting with reloader
@@ -116,6 +122,7 @@ Vous pouvez maintenant ouvrir votre navigateur à l'adresse [http://localhost:50
 
 Tout fonctionne correctement ? Ouf, on va pouvoir commiter tout ça avant de tout casser, sans oublier de créer un fichier *.gitignore* pour éviter d'ajouter les script Python compilés (les fichiers *.pyc*) dans notre dépôt Git.
 
+    ::bash
     (env) src.git $ echo "*.pyc" >> .gitignore
     (env) src.git $ git add .gitignore run-server.py monprojet/
     (env) src.git $ git commit -m "Initial commit"
