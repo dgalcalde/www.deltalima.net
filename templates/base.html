@@ -6,14 +6,13 @@
   <title>{% if page.title %}{{ page.title }} - {% endif %}deltalima.net</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
-  <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet">
-  <link href="{{ url_for('pygments_css') }}" rel="stylesheet">
-  <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  {{ compressor("all.css", inline=True) }}
   <link href="{{ url_for('static', filename='favicon.ico') }}" rel="shortcut icon">
   <link href="{{ url_for('feed_all') }}" rel="alternate" title="deltalima.net - Recent Articles" type="application/atom+xml">
 {% endblock %}
 </head>
 <body>
+
 
 <div class="container">
   <div class="sidebar">

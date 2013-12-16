@@ -1,5 +1,7 @@
 Flask
+Flask-Compressor
 Flask-FlatPages
 Frozen-Flask
 BeautifulSoup
 Pygments
+cssmin

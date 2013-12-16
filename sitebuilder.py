@@ -8,6 +8,7 @@ from datetime import datetime
 from flask import Flask, render_template, url_for, make_response, request
 from flask_flatpages import FlatPages, pygments_style_defs
 from flask_frozen import Freezer
+from flask.ext.compressor import Compressor, FileAsset, Asset, CSSBundle
 from werkzeug import SharedDataMiddleware
 from werkzeug.contrib.atom import AtomFeed
 from BeautifulSoup import BeautifulSoup
@@ -24,10 +25,26 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 pages = FlatPages(app)
 freezer = Freezer(app)
+compressor = Compressor(app)
 
 app.wsgi_app = SharedDataMiddleware(app.wsgi_app, {
     '/': os.path.join(os.path.dirname(__file__), 'static')
 })
+
+
+#
+# Web assets
+#
+css_bundle = CSSBundle(
+    name='all.css',
+    assets=[
+        FileAsset('css/normalize.css'),
+        Asset(pygments_style_defs()),
+        FileAsset('css/styles.less', processors=['lesscss']),
+    ],
+    processors=['cssmin']
+)
+compressor.register_bundle(css_bundle)
 
 
 #
@@ -50,6 +67,7 @@ def summarize(html):
 
 # add `datetime.now()` as a global Jinja2 variable making it always available in a template
 app.jinja_env.globals['now'] = datetime.now()
+
 
 
 #
